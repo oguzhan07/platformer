@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c029916e8d897614a8ab11c2d228a80d, type: 3}
+  m_Name: Archer
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyType
+  enemyName: Archer
+  enemyHealth: 5
+  enemyMoveSpeed: 1
+  enemyJumpSpeed: 2
+  enemyFollowDistance: 6
+  enemyAttackDistance: 5
+  enemySprite: {fileID: 7257567913506708742, guid: 04facb10a28aedd47ba063bc40ccbf6c, type: 3}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c029916e8d897614a8ab11c2d228a80d, type: 3}
+  m_Name: Lancer
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyType
+  enemyName: Lancer
+  enemyHealth: 7
+  enemyMoveSpeed: 1.5
+  enemyJumpSpeed: 2
+  enemyFollowDistance: 4
+  enemyAttackDistance: 2
+  enemySprite: {fileID: -594197781322936934, guid: 25513d9410e056b44b8772877a8f72e3, type: 3}
