@@ -385,8 +385,8 @@ GameObject:
   - component: {fileID: 154709127}
   - component: {fileID: 154709126}
   - component: {fileID: 154709124}
-  - component: {fileID: 154709125}
   - component: {fileID: 154709129}
+  - component: {fileID: 154709130}
   m_Layer: 3
   m_Name: Archer
   m_TagString: Untagged
@@ -440,25 +440,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.72668886, y: 0.9749921}
   m_EdgeRadius: 0
---- !u!114 &154709125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154709123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74b59e424736aa547a8e4628aa12ec41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  enemyType: {fileID: 11400000, guid: a605feb7556f81f4795fa545a81ce6fb, type: 2}
-  enemyState: 1
-  health: 8
-  leftEmpty: {fileID: 5247751}
-  rightEmpty: {fileID: 217056769}
-  player: {fileID: 1292638840}
-  moveDir: 1
 --- !u!50 &154709126
 Rigidbody2D:
   serializedVersion: 5
@@ -582,6 +563,26 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &154709130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154709123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a2ae3570b9aa147ac8b51591544541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  enemyType: {fileID: 11400000, guid: a605feb7556f81f4795fa545a81ce6fb, type: 2}
+  enemyState: 0
+  leftEmpty: {fileID: 5247751}
+  rightEmpty: {fileID: 217056769}
+  player: {fileID: 1292638840}
+  arrowPrefab: {fileID: 6465655763838045165, guid: b20afbc99a41f764393771f0030e3fd8, type: 3}
+  moveDir: 1
+  arrowSpeed: 0.5
 --- !u!4 &164687754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 8f5e12dd3a9888e45a300388a4aade34, type: 3}
@@ -3859,7 +3860,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   guard: 3
-  arrowSprite: {fileID: -4346244404228752641, guid: 2ca5d17fc403bcb48888f38cd810af17, type: 3}
 --- !u!50 &1292638842
 Rigidbody2D:
   serializedVersion: 5
@@ -4175,7 +4175,7 @@ GameObject:
   - component: {fileID: 1392690223}
   - component: {fileID: 1392690222}
   - component: {fileID: 1392690224}
-  - component: {fileID: 1392690225}
+  - component: {fileID: 1392690227}
   m_Layer: 3
   m_Name: Lancer
   m_TagString: Untagged
@@ -4293,25 +4293,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1392690225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1392690218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74b59e424736aa547a8e4628aa12ec41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  enemyType: {fileID: 11400000, guid: 3a92771b6b1030940aa177244ebe840b, type: 2}
-  enemyState: 1
-  health: 7
-  leftEmpty: {fileID: 550445981}
-  rightEmpty: {fileID: 1149290172}
-  player: {fileID: 1292638840}
-  moveDir: 1
 --- !u!212 &1392690226
 SpriteRenderer:
   serializedVersion: 2
@@ -4371,6 +4352,26 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1392690227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392690218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a2ae3570b9aa147ac8b51591544541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  enemyType: {fileID: 11400000, guid: 3a92771b6b1030940aa177244ebe840b, type: 2}
+  enemyState: 0
+  leftEmpty: {fileID: 550445981}
+  rightEmpty: {fileID: 1149290172}
+  player: {fileID: 1292638840}
+  arrowPrefab: {fileID: 6465655763838045165, guid: b20afbc99a41f764393771f0030e3fd8, type: 3}
+  moveDir: 1
+  arrowSpeed: 0.05
 --- !u!4 &1476606866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 8f5e12dd3a9888e45a300388a4aade34, type: 3}

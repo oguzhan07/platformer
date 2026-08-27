@@ -17,8 +17,6 @@ public class Player : MonoBehaviour
     public float guard;
     private float attack;
     private int[] listHashCodes = new[] {ATTACK_HASH_1, ATTACK_HASH_2};
-    public Sprite arrowSprite;
-
      
 
     private Rigidbody2D rb = null;
@@ -72,15 +70,11 @@ public class Player : MonoBehaviour
             Collider2D enemyCollider = Physics2D.OverlapCircle(transform.position, attackDistance, enemyLayerMask);
             if (enemyCollider)
             {
-                if (enemyCollider.TryGetComponent(out EnemyManager enemy))
+                if (enemyCollider.TryGetComponent(out Enemy enemy))
                 {
                     enemy.TakeDamage(1);
-                    
                 }
             }
-            
-            // ok'da kaldım
-            Instantiate(arrowSprite, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
         }
     }
 

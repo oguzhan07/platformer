@@ -1,26 +1,33 @@
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public EnemyType enemyType;
     public EnemyState enemyState;
 
-    public float health;
-    private float moveSpeed;
 
-    private SpriteRenderer renderer;
     private Rigidbody2D rb;
     private Animator animator;
     public GameObject leftEmpty;
     public GameObject rightEmpty;
     public GameObject player;
-
+    
+    private GameObject arrow;
+    public GameObject arrowPrefab;
+    
+    
     public int moveDir = 1;
     private bool run;
     private bool attack;
+    public float arrowSpeed = 0.5f;
+
+    private float health;
+    private float moveSpeed;
     private float followDistance;
     private float attackDistance;
+    private SpriteRenderer renderer;
 
+    
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -43,6 +50,9 @@ public class EnemyManager : MonoBehaviour
         followDistance = enemyType.enemyFollowDistance;
         attackDistance = enemyType.enemyAttackDistance;
         renderer.sprite = enemyType.enemySprite;
+
+        arrow = GameObject.Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+        
     }
 
     private void Update()
@@ -61,6 +71,19 @@ public class EnemyManager : MonoBehaviour
                 Follow();
                 break;
         }
+        
+        arrow.transform.position += new Vector3(arrowSpeed, 0, 0);
+    }
+
+    private float ArrowPath()
+    {
+        // okun güzergahında kaldım. fonksiyon ile güzergahı
+        // çizdireceğim. go to giib şeylere bakıp, gidiş yolunu verme
+        // işine de bakabilirim. aklıma ilk gelen şey fonksiyonun x
+        // değerleri döndürmesi ve okunn bunları her framde
+        // input olarak alması oldu.
+        
+        return 1;
     }
 
 
@@ -68,7 +91,9 @@ public class EnemyManager : MonoBehaviour
     {
         animator.SetBool("Attack", true);
         print("saldırıyorum");
-
+        
+        
+        
         if (player.transform.position.x - transform.position.x < 0)
         {
             renderer.flipX = true;
@@ -84,11 +109,7 @@ public class EnemyManager : MonoBehaviour
             enemyState = EnemyState.Patrol;
         }
     }
-
-    private void Archer()
-    {
-        
-    }
+    
 
     private void Follow()
     {
