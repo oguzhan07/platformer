@@ -1,3 +1,5 @@
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -20,6 +22,9 @@ public class Enemy : MonoBehaviour
     private bool run;
     private bool attack;
     public float arrowSpeed = 0.5f;
+    private float arrowMaxh = 3;
+    private float xCoor;
+    private float yCoor;
 
     private float health;
     private float moveSpeed;
@@ -71,22 +76,33 @@ public class Enemy : MonoBehaviour
                 Follow();
                 break;
         }
-        
-        arrow.transform.position += new Vector3(arrowSpeed, 0, 0);
+
+        ArrowPath();
     }
 
-    private float ArrowPath()
+    private void ArrowPath()
     {
         // okun güzergahında kaldım. fonksiyon ile güzergahı
         // çizdireceğim. go to giib şeylere bakıp, gidiş yolunu verme
         // işine de bakabilirim. aklıma ilk gelen şey fonksiyonun x
         // değerleri döndürmesi ve okunn bunları her framde
         // input olarak alması oldu.
+        // düşmanla aramdaki mesafenin yarısı / hipotenüs = cosx
+        // -1 < cosx < 1
+        // arccos(x) = derece
+        // vector2() ne ister ?: koordinatta bir nokta, x ve y değerleri
         
-        return 1;
+        
+        for (float i = 0; i <= 1; i += 0.1f)
+        {
+            float d = Mathf.Sqrt(math.square(player.transform.position.x - transform.position.x) + math.square(player.transform.position.y - transform.position.y));
+            xCoor = (1-i) * (transform.position.x) + i * (player.transform.position.x) - 2 * i * (1 - i) * arrowMaxh * (player.transform.position.y - transform.position.y) / d;
+            yCoor = (1-i) * (transform.position.y) + i * (player.transform.position.y) - 2 * i * (1 - i) * arrowMaxh * (player.transform.position.x - transform.position.x) / d;
+            arrow.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, arrowMaxh);
+        }
+        //arrow.transform.position = new Vector2(xCoor, yCoor);
     }
-
-
+    
     private void Attack()
     {
         animator.SetBool("Attack", true);
