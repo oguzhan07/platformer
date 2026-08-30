@@ -4371,7 +4371,7 @@ MonoBehaviour:
   player: {fileID: 1292638840}
   arrowPrefab: {fileID: 6465655763838045165, guid: b20afbc99a41f764393771f0030e3fd8, type: 3}
   moveDir: 1
-  arrowSpeed: 0.05
+  arrowSpeed: 1e-26
 --- !u!4 &1476606866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 8f5e12dd3a9888e45a300388a4aade34, type: 3}

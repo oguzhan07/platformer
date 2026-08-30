@@ -93,14 +93,24 @@ public class Enemy : MonoBehaviour
         // vector2() ne ister ?: koordinatta bir nokta, x ve y değerleri
         
         
+        
+        // 1. yay çizilecek
+        // 2. yayın güzergahını her frame'de return edecek
+        // 3. return'ün çıktısını ok'un hareket fonksiyonu alacak
+        // 
         for (float i = 0; i <= 1; i += 0.1f)
         {
-            float d = Mathf.Sqrt(math.square(player.transform.position.x - transform.position.x) + math.square(player.transform.position.y - transform.position.y));
+            /*float d = Mathf.Sqrt(math.square(player.transform.position.x - transform.position.x) + math.square(player.transform.position.y - transform.position.y));
             xCoor = (1-i) * (transform.position.x) + i * (player.transform.position.x) - 2 * i * (1 - i) * arrowMaxh * (player.transform.position.y - transform.position.y) / d;
             yCoor = (1-i) * (transform.position.y) + i * (player.transform.position.y) - 2 * i * (1 - i) * arrowMaxh * (player.transform.position.x - transform.position.x) / d;
-            arrow.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, arrowMaxh);
+            arrow.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, arrowMaxh);*/
+            
+            xCoor = transform.position.x + i * (player.transform.position.x - transform.position.x);
+            yCoor = arrow.transform.position.y - 4 * arrowMaxh * i * (1 - i);
+            arrow.transform.position = new Vector2(xCoor, yCoor);
+            print("x:" +xCoor);
+            print("y:" +yCoor);
         }
-        //arrow.transform.position = new Vector2(xCoor, yCoor);
     }
     
     private void Attack()
