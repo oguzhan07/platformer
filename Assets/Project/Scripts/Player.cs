@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public float endValue = 0.5f;
 
     [SerializeField] private int health;
+    private int maxHealth;
 
     
     private bool onGround;
@@ -89,7 +90,7 @@ public class Player : MonoBehaviour
         
         Color startColor = new Color(0, 255, 0, 255);
         Color endColor = new Color(255, 0, 0, 255);
-        
+        endValue = 1 / (health / maxHealth * 100);
         healthBar.transform.DOScaleX(endValue, 0.4f);
         healthBarImage.DOColor(endColor,0.4f);
     }

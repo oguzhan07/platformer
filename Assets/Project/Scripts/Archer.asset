@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Archer
   m_EditorClassIdentifier: Assembly-CSharp::EnemyType
   enemyName: Archer
+  enemyDamage: 2
   enemyHealth: 5
   enemyMoveSpeed: 1
   enemyJumpSpeed: 2
