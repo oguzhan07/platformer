@@ -158,12 +158,12 @@ TextureImporter:
       name: BigRibbons_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 516
-        width: 100
-        height: 105
+        x: 0
+        y: 512
+        width: 149
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -180,12 +180,12 @@ TextureImporter:
       name: BigRibbons_1
       rect:
         serializedVersion: 2
-        x: 191
-        y: 528
-        width: 66
-        height: 91
+        x: 149
+        y: 512
+        width: 149
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -202,12 +202,12 @@ TextureImporter:
       name: BigRibbons_2
       rect:
         serializedVersion: 2
-        x: 319
-        y: 518
-        width: 99
-        height: 103
+        x: 298
+        y: 512
+        width: 149
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -224,12 +224,12 @@ TextureImporter:
       name: BigRibbons_3
       rect:
         serializedVersion: 2
-        x: 29
-        y: 388
-        width: 100
-        height: 105
+        x: 0
+        y: 384
+        width: 149
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -246,12 +246,12 @@ TextureImporter:
       name: BigRibbons_4
       rect:
         serializedVersion: 2
-        x: 191
-        y: 400
-        width: 66
-        height: 91
+        x: 149
+        y: 384
+        width: 149
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -268,12 +268,12 @@ TextureImporter:
       name: BigRibbons_5
       rect:
         serializedVersion: 2
-        x: 319
-        y: 390
-        width: 99
-        height: 103
+        x: 298
+        y: 384
+        width: 149
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -290,12 +290,12 @@ TextureImporter:
       name: BigRibbons_6
       rect:
         serializedVersion: 2
-        x: 29
-        y: 260
-        width: 100
-        height: 105
+        x: 0
+        y: 256
+        width: 149
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -312,12 +312,12 @@ TextureImporter:
       name: BigRibbons_7
       rect:
         serializedVersion: 2
-        x: 191
-        y: 272
-        width: 66
-        height: 91
+        x: 149
+        y: 256
+        width: 149
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -334,12 +334,12 @@ TextureImporter:
       name: BigRibbons_8
       rect:
         serializedVersion: 2
-        x: 319
-        y: 262
-        width: 99
-        height: 103
+        x: 298
+        y: 256
+        width: 149
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -356,12 +356,12 @@ TextureImporter:
       name: BigRibbons_9
       rect:
         serializedVersion: 2
-        x: 29
-        y: 132
-        width: 100
-        height: 105
+        x: 0
+        y: 128
+        width: 149
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -378,12 +378,12 @@ TextureImporter:
       name: BigRibbons_10
       rect:
         serializedVersion: 2
-        x: 191
-        y: 144
-        width: 66
-        height: 91
+        x: 149
+        y: 128
+        width: 149
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -400,12 +400,12 @@ TextureImporter:
       name: BigRibbons_11
       rect:
         serializedVersion: 2
-        x: 319
-        y: 134
-        width: 99
-        height: 103
+        x: 298
+        y: 128
+        width: 149
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -422,12 +422,12 @@ TextureImporter:
       name: BigRibbons_12
       rect:
         serializedVersion: 2
-        x: 29
-        y: 4
-        width: 100
-        height: 105
+        x: 0
+        y: 0
+        width: 149
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -444,12 +444,12 @@ TextureImporter:
       name: BigRibbons_13
       rect:
         serializedVersion: 2
-        x: 191
-        y: 16
-        width: 66
-        height: 91
+        x: 149
+        y: 0
+        width: 149
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -466,12 +466,12 @@ TextureImporter:
       name: BigRibbons_14
       rect:
         serializedVersion: 2
-        x: 319
-        y: 6
-        width: 99
-        height: 103
+        x: 298
+        y: 0
+        width: 149
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -488,7 +488,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 81f89d9bee77dd248a130a66cde0ab5c
     internalID: 0
     vertices: []
     indices: 
@@ -496,7 +496,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":5.0},"gridSpriteSize":{"x":149.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       BigRibbons_0: -4892212827595964496
       BigRibbons_1: 351974544103463365

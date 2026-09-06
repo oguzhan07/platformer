@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public EnemyType enemyType;
     public EnemyState enemyState;
+    [SerializeField] private LayerMask playerLayerMask; 
 
 
     private Rigidbody2D rb;
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour
     private float xCoor;
     private float yCoor;
 
+    private int damage;
     private float health;
     private float moveSpeed;
     private float followDistance;
@@ -50,6 +52,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         name = enemyType.enemyName;
+        damage = enemyType.enemyDamage;
         health = enemyType.enemyHealth;
         moveSpeed = enemyType.enemyMoveSpeed;
         followDistance = enemyType.enemyFollowDistance;
@@ -108,17 +111,24 @@ public class Enemy : MonoBehaviour
             xCoor = transform.position.x + i * (player.transform.position.x - transform.position.x);
             yCoor = arrow.transform.position.y - 4 * arrowMaxh * i * (1 - i);
             arrow.transform.position = new Vector2(xCoor, yCoor);
-            print("x:" +xCoor);
-            print("y:" +yCoor);
+            //print("x:" +xCoor);
+            //print("y:" +yCoor);
         }
     }
     
     private void Attack()
     {
         animator.SetBool("Attack", true);
-        print("saldırıyorum");
-        
-        
+
+        Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, attackDistance, playerLayerMask);
+        if (playerCollider)
+        {
+            if (playerCollider.TryGetComponent(out Player player))
+            {
+                player.DamageToPlayer(damage);
+                
+            }
+        }
         
         if (player.transform.position.x - transform.position.x < 0)
         {

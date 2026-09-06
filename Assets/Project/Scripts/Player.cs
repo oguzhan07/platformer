@@ -1,5 +1,7 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = System.Random;
 
 public class Player : MonoBehaviour
@@ -8,6 +10,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float attackDistance;
     [SerializeField] private LayerMask enemyLayerMask;
+    [SerializeField] private GameObject healthBar;
+    private Image healthBarImage;
+    public float endValue = 0.5f;
+
+    [SerializeField] private int health;
 
     
     private bool onGround;
@@ -47,6 +54,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        healthBarImage = healthBar.GetComponent<Image>();
     }
 
     private void FixedUpdate()
@@ -59,8 +67,35 @@ public class Player : MonoBehaviour
         Animation();
         Attack();
         AttackAnimation();
+        HealthBar();
     }
 
+    public void DamageToPlayer(int amount)
+    {
+        health -= amount;
+        if (health > 0)
+        {
+            print(health);
+            return;
+        }
+        Destroy(gameObject);
+    }
+
+    private void HealthBar()
+    {
+        // endValue: düşmandan yediğpi hasarın canından düştüğünde kalan miktarın, full cana kıyasla
+        // yüzdesinin can barının boyundaki karşılığı kadar olacak
+        // can yüzdesine göre renk if'leri yapılacak
+        
+        Color startColor = new Color(0, 255, 0, 255);
+        Color endColor = new Color(255, 0, 0, 255);
+        
+        healthBar.transform.DOScaleX(endValue, 0.4f);
+        healthBarImage.DOColor(endColor,0.4f);
+    }
+
+    
+    
     private void Attack()
     {
         if (Input.GetKey(KeyCode.Mouse0))

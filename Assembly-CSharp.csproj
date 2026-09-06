@@ -50,6 +50,8 @@
     <Compile Include="Assets\Project\Scripts\Gold.cs" />
     <Compile Include="Assets\Project\Scripts\Player.cs" />
     <Compile Include="Assets\Project\Scripts\Enemy\EnemyType.cs" />
+    <Compile Include="Assets\Project\Scripts\Buttons\MusicButton.cs" />
+    <Compile Include="Assets\Project\Scripts\Buttons\InfoButton.cs" />
     <Compile Include="Assets\Project\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Project\Scripts\UiManager.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
