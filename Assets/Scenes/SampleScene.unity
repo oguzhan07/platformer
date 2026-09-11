@@ -1593,6 +1593,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 6465655763838045165, guid: b20afbc99a41f764393771f0030e3fd8, type: 3}
   moveDir: 1
   arrowSpeed: 0.5
+  damage: 1
 --- !u!4 &164687754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 8f5e12dd3a9888e45a300388a4aade34, type: 3}
@@ -2869,6 +2870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UiManager
   textMeshPro: {fileID: 769580192}
+  healthBar: {fileID: 0}
 --- !u!4 &348795139
 Transform:
   m_ObjectHideFlags: 0
@@ -10221,6 +10223,7 @@ MonoBehaviour:
   healthBar: {fileID: 866092335}
   endValue: 0.5
   health: 100
+  maxHealth: 100
   guard: 3
 --- !u!50 &1292638842
 Rigidbody2D:
@@ -11606,6 +11609,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 6465655763838045165, guid: b20afbc99a41f764393771f0030e3fd8, type: 3}
   moveDir: 1
   arrowSpeed: 1e-26
+  damage: 1
 --- !u!1 &1405262262
 GameObject:
   m_ObjectHideFlags: 0

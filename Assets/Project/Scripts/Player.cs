@@ -13,9 +13,10 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject healthBar;
     private Image healthBarImage;
     public float endValue = 0.5f;
+    private UiManager uiManager;
 
     [SerializeField] private int health;
-    private int maxHealth;
+    [SerializeField] private int maxHealth;
 
     
     private bool onGround;
@@ -68,7 +69,6 @@ public class Player : MonoBehaviour
         Animation();
         Attack();
         AttackAnimation();
-        HealthBar();
     }
 
     public void DamageToPlayer(int amount)
@@ -87,12 +87,8 @@ public class Player : MonoBehaviour
         // endValue: düşmandan yediğpi hasarın canından düştüğünde kalan miktarın, full cana kıyasla
         // yüzdesinin can barının boyundaki karşılığı kadar olacak
         // can yüzdesine göre renk if'leri yapılacak
+        print("healthbar");
         
-        Color startColor = new Color(0, 255, 0, 255);
-        Color endColor = new Color(255, 0, 0, 255);
-        endValue = 1 / (health / maxHealth * 100);
-        healthBar.transform.DOScaleX(endValue, 0.4f);
-        healthBarImage.DOColor(endColor,0.4f);
     }
 
     

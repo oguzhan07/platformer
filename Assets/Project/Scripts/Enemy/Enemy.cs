@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     private float xCoor;
     private float yCoor;
 
-    private int damage;
+    public int damage;
     private float health;
     private float moveSpeed;
     private float followDistance;
@@ -85,6 +85,22 @@ public class Enemy : MonoBehaviour
 
     private void ArrowPath()
     {
+        if (player)
+        {
+            for (float i = 0; i <= 1; i += 0.1f)
+            {
+                /*float d = Mathf.Sqrt(math.square(player.transform.position.x - transform.position.x) + math.square(player.transform.position.y - transform.position.y));
+                xCoor = (1-i) * (transform.position.x) + i * (player.transform.position.x) - 2 * i * (1 - i) * arrowMaxh * (player.transform.position.y - transform.position.y) / d;
+                yCoor = (1-i) * (transform.position.y) + i * (player.transform.position.y) - 2 * i * (1 - i) * arrowMaxh * (player.transform.position.x - transform.position.x) / d;
+                arrow.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, arrowMaxh);*/
+            
+                xCoor = transform.position.x + i * (player.transform.position.x - transform.position.x);
+                yCoor = arrow.transform.position.y - 4 * arrowMaxh * i * (1 - i);
+                arrow.transform.position = new Vector2(xCoor, yCoor);
+                //print("x:" +xCoor);
+                //print("y:" +yCoor);
+            }
+        }
         // okun güzergahında kaldım. fonksiyon ile güzergahı
         // çizdireceğim. go to giib şeylere bakıp, gidiş yolunu verme
         // işine de bakabilirim. aklıma ilk gelen şey fonksiyonun x
@@ -101,19 +117,7 @@ public class Enemy : MonoBehaviour
         // 2. yayın güzergahını her frame'de return edecek
         // 3. return'ün çıktısını ok'un hareket fonksiyonu alacak
         // 
-        for (float i = 0; i <= 1; i += 0.1f)
-        {
-            /*float d = Mathf.Sqrt(math.square(player.transform.position.x - transform.position.x) + math.square(player.transform.position.y - transform.position.y));
-            xCoor = (1-i) * (transform.position.x) + i * (player.transform.position.x) - 2 * i * (1 - i) * arrowMaxh * (player.transform.position.y - transform.position.y) / d;
-            yCoor = (1-i) * (transform.position.y) + i * (player.transform.position.y) - 2 * i * (1 - i) * arrowMaxh * (player.transform.position.x - transform.position.x) / d;
-            arrow.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, arrowMaxh);*/
-            
-            xCoor = transform.position.x + i * (player.transform.position.x - transform.position.x);
-            yCoor = arrow.transform.position.y - 4 * arrowMaxh * i * (1 - i);
-            arrow.transform.position = new Vector2(xCoor, yCoor);
-            //print("x:" +xCoor);
-            //print("y:" +yCoor);
-        }
+        
     }
     
     private void Attack()
@@ -126,52 +130,57 @@ public class Enemy : MonoBehaviour
             if (playerCollider.TryGetComponent(out Player player))
             {
                 player.DamageToPlayer(damage);
-                
             }
         }
-        
-        if (player.transform.position.x - transform.position.x < 0)
-        {
-            renderer.flipX = true;
-        }
 
-        if (player.transform.position.x - transform.position.x > 0)
+        if (player)
         {
-            renderer.flipX = false;
-        }
+            if (player.transform.position.x - transform.position.x < 0)
+            {
+                renderer.flipX = true;
+            }
 
-        if (Mathf.Abs(player.transform.position.x - transform.position.x) >= attackDistance)
-        {
-            enemyState = EnemyState.Patrol;
+            if (player.transform.position.x - transform.position.x > 0)
+            {
+                renderer.flipX = false;
+            }
+
+            if (Mathf.Abs(player.transform.position.x - transform.position.x) >= attackDistance)
+            {
+                enemyState = EnemyState.Patrol;
+            }
         }
     }
     
 
     private void Follow()
     {
-        if (player.transform.position.x - transform.position.x < 0)
+        if (player)
         {
-            renderer.flipX = true;
-        }
+            if (player.transform.position.x - transform.position.x < 0)
+            {
+                renderer.flipX = true;
+            }
 
-        if (player.transform.position.x - transform.position.x > 0)
-        {
-            renderer.flipX = false;
-        }
+            if (player.transform.position.x - transform.position.x > 0)
+            {
+                renderer.flipX = false;
+            }
 
-        rb.linearVelocity =
-            new Vector2((player.transform.position.x - transform.position.x) * moveSpeed, rb.linearVelocityY)
-                .normalized;
+            rb.linearVelocity =
+                new Vector2((player.transform.position.x - transform.position.x) * moveSpeed, rb.linearVelocityY)
+                    .normalized;
 
 
-        if (Mathf.Abs(player.transform.position.x - transform.position.x) < attackDistance)
-        {
-            enemyState = EnemyState.Attack;
-        }
+            if (Mathf.Abs(player.transform.position.x - transform.position.x) < attackDistance)
+            {
+                enemyState = EnemyState.Attack;
+            }
 
-        if (Mathf.Abs(player.transform.position.x - transform.position.x) > followDistance)
-        {
-            enemyState = EnemyState.Patrol;
+            if (Mathf.Abs(player.transform.position.x - transform.position.x) > followDistance)
+            {
+                enemyState = EnemyState.Patrol;
+            }
         }
     }
 
@@ -205,11 +214,14 @@ public class Enemy : MonoBehaviour
                 rb.linearVelocityY).normalized;
             renderer.flipX = true;
         }*/
-
-        if (Mathf.Abs(player.transform.position.x - transform.position.x) < followDistance)
+        if (player)
         {
-            enemyState = EnemyState.Follow;
+            if (Mathf.Abs(player.transform.position.x - transform.position.x) < followDistance)
+            {
+                enemyState = EnemyState.Follow;
+            }
         }
+        
     }
 
 
