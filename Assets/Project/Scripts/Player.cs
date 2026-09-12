@@ -10,10 +10,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float attackDistance;
     [SerializeField] private LayerMask enemyLayerMask;
-    [SerializeField] private GameObject healthBar;
-    private Image healthBarImage;
+    public HealthBar healthBar;
     public float endValue = 0.5f;
-    private UiManager uiManager;
+    private GoldManager goldManager;
 
     [SerializeField] private int health;
     [SerializeField] private int maxHealth;
@@ -56,7 +55,6 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-        healthBarImage = healthBar.GetComponent<Image>();
     }
 
     private void FixedUpdate()
@@ -73,6 +71,7 @@ public class Player : MonoBehaviour
 
     public void DamageToPlayer(int amount)
     {
+        healthBar.Bar(health/100);
         health -= amount;
         if (health > 0)
         {
@@ -81,16 +80,6 @@ public class Player : MonoBehaviour
         }
         Destroy(gameObject);
     }
-
-    private void HealthBar()
-    {
-        // endValue: düşmandan yediğpi hasarın canından düştüğünde kalan miktarın, full cana kıyasla
-        // yüzdesinin can barının boyundaki karşılığı kadar olacak
-        // can yüzdesine göre renk if'leri yapılacak
-        print("healthbar");
-        
-    }
-
     
     
     private void Attack()

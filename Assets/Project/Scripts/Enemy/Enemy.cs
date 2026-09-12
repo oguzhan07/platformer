@@ -6,7 +6,8 @@ public class Enemy : MonoBehaviour
 {
     public EnemyType enemyType;
     public EnemyState enemyState;
-    [SerializeField] private LayerMask playerLayerMask; 
+    [SerializeField] private LayerMask playerLayerMask;
+    private GoldManager goldManager;
 
 
     private Rigidbody2D rb;
@@ -27,7 +28,7 @@ public class Enemy : MonoBehaviour
     private float xCoor;
     private float yCoor;
 
-    public int damage;
+    public int damage = 2;
     private float health;
     private float moveSpeed;
     private float followDistance;

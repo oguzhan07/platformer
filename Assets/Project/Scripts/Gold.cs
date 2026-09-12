@@ -1,9 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Gold : MonoBehaviour
 {
-    public UiManager uiManager;
+    [FormerlySerializedAs("uiManager")] public GoldManager goldManager;
     
     private void Start()
     {
@@ -16,7 +17,7 @@ public class Gold : MonoBehaviour
         {
             // Burada arttırma işlemini başka bir scriptte yapmak problemimi çözdü fakat başka bir problem doğurdu:
             // Her bir altın'a UiManager'ı elle tek tek tanıtmak. Bunu nasıl koddan yapabilirim?
-            uiManager.IncreaseCoin();
+            goldManager.IncreaseCoin();
             Destroy(gameObject);
             transform.DOKill();
         }
