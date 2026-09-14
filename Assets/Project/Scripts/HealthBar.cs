@@ -31,6 +31,4 @@ public class HealthBar : MonoBehaviour
         //ui'da layer: hiyerarşide altta olan sahnede üstte oluyormuş :/
         whiteBar.transform.DOScaleX(percentValue, 1.5f);
     }
-
-    
 }

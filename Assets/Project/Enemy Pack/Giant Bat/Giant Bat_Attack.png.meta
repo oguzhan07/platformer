@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: 68a6912508832cf4680de206ef8a41a0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3363662216436617858
+    second: Giant Bat_Attack_0
+  - first:
+      213: -1944886067028712610
+    second: Giant Bat_Attack_1
+  - first:
+      213: 8443654085256757084
+    second: Giant Bat_Attack_2
+  - first:
+      213: 3884590664896764241
+    second: Giant Bat_Attack_3
+  - first:
+      213: -7661085905974106792
+    second: Giant Bat_Attack_4
+  - first:
+      213: 4911303532479889180
+    second: Giant Bat_Attack_5
+  - first:
+      213: 907733120139007720
+    second: Giant Bat_Attack_6
+  - first:
+      213: -5127984637395820658
+    second: Giant Bat_Attack_7
+  - first:
+      213: 333759985913141339
+    second: Giant Bat_Attack_8
+  - first:
+      213: 7113470216146109991
+    second: Giant Bat_Attack_9
+  - first:
+      213: 7929310775677978540
+    second: Giant Bat_Attack_10
+  - first:
+      213: 7632496121388581693
+    second: Giant Bat_Attack_11
+  - first:
+      213: -8949553065082124128
+    second: Giant Bat_Attack_12
+  - first:
+      213: 3641251038428030609
+    second: Giant Bat_Attack_13
+  - first:
+      213: 4845780285560628736
+    second: Giant Bat_Attack_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Giant Bat_Attack_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 68
+        width: 132
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7d64ec190fd151d0800000000000000
+      internalID: -3363662216436617858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant Bat_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 66
+        width: 136
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e53a52e2d606205e0800000000000000
+      internalID: -1944886067028712610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant Bat_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 68
+        width: 145
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5f310677a2ed2570800000000000000
+      internalID: 8443654085256757084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant Bat_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 71
+        width: 135
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15958f6d0a6d8e530800000000000000
+      internalID: 3884590664896764241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant Bat_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 68
+        width: 105
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85569ac65fa5ea590800000000000000
+      internalID: -7661085905974106792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant Bat_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 72
+        width: 110
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1fb595aa84782440800000000000000
+      internalID: 4911303532479889180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant Bat_Attack_6
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 69
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e61eb0a67ae89c00800000000000000
+      internalID: 907733120139007720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant Bat_Attack_7
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 72
+        width: 115
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8f9c5a342db5d8b0800000000000000
+      internalID: -5127984637395820658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant Bat_Attack_8
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 48
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b58979850f0c1a400800000000000000
+      internalID: 333759985913141339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant Bat_Attack_9
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 48
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 726c5b9097f18b260800000000000000
+      internalID: 7113470216146109991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant Bat_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 48
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca786f1a3229a0e60800000000000000
+      internalID: 7929310775677978540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant Bat_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 48
+        width: 23
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d33c9e0a8c21ce960800000000000000
+      internalID: 7632496121388581693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant Bat_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 48
+        width: 42
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a8854177ecccc380800000000000000
+      internalID: -8949553065082124128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant Bat_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 48
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 196668bf682588230800000000000000
+      internalID: 3641251038428030609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant Bat_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 48
+        width: 31
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 006ae64ee7baf3340800000000000000
+      internalID: 4845780285560628736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Giant Bat_Attack_0: -3363662216436617858
+      Giant Bat_Attack_1: -1944886067028712610
+      Giant Bat_Attack_10: 7929310775677978540
+      Giant Bat_Attack_11: 7632496121388581693
+      Giant Bat_Attack_12: -8949553065082124128
+      Giant Bat_Attack_13: 3641251038428030609
+      Giant Bat_Attack_14: 4845780285560628736
+      Giant Bat_Attack_2: 8443654085256757084
+      Giant Bat_Attack_3: 3884590664896764241
+      Giant Bat_Attack_4: -7661085905974106792
+      Giant Bat_Attack_5: 4911303532479889180
+      Giant Bat_Attack_6: 907733120139007720
+      Giant Bat_Attack_7: -5127984637395820658
+      Giant Bat_Attack_8: 333759985913141339
+      Giant Bat_Attack_9: 7113470216146109991
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

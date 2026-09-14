@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: d8b26628f39ce7541bc63009ec455dbe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8466050440115633412
+    second: Bumblebee_Idle_0
+  - first:
+      213: -6175641344606017191
+    second: Bumblebee_Idle_1
+  - first:
+      213: 2819022667720714313
+    second: Bumblebee_Idle_2
+  - first:
+      213: -5292536134057285850
+    second: Bumblebee_Idle_3
+  - first:
+      213: -8673263579009460136
+    second: Bumblebee_Idle_4
+  - first:
+      213: 123927399262237498
+    second: Bumblebee_Idle_5
+  - first:
+      213: -8992608141183152066
+    second: Bumblebee_Idle_6
+  - first:
+      213: -1809770224702321403
+    second: Bumblebee_Idle_7
+  - first:
+      213: 3862461410172941572
+    second: Bumblebee_Idle_8
+  - first:
+      213: -3552009682126215326
+    second: Bumblebee_Idle_9
+  - first:
+      213: -7158622290506218621
+    second: Bumblebee_Idle_10
+  - first:
+      213: 1094717228328829081
+    second: Bumblebee_Idle_11
+  - first:
+      213: -7661766868486399121
+    second: Bumblebee_Idle_12
+  - first:
+      213: -3608123469147780583
+    second: Bumblebee_Idle_13
+  - first:
+      213: 7165604249573155567
+    second: Bumblebee_Idle_14
+  - first:
+      213: 2977265291656310015
+    second: Bumblebee_Idle_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bumblebee_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 61
+        width: 95
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf24e52dafb828a80800000000000000
+      internalID: -8466050440115633412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bumblebee_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 61
+        width: 94
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 959ea82cae6bb4aa0800000000000000
+      internalID: -6175641344606017191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bumblebee_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 60
+        width: 92
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94864433e2e2f1720800000000000000
+      internalID: 2819022667720714313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bumblebee_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 59
+        width: 90
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 627a8985d622d86b0800000000000000
+      internalID: -5292536134057285850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bumblebee_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 58
+        width: 88
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 858dec15ab062a780800000000000000
+      internalID: -8673263579009460136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bumblebee_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 57
+        width: 88
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a33b6f2205748b100800000000000000
+      internalID: 123927399262237498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bumblebee_Idle_6
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 59
+        width: 89
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e301e7c5a86d33380800000000000000
+      internalID: -8992608141183152066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bumblebee_Idle_7
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 60
+        width: 94
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50d0a87b19762e6e0800000000000000
+      internalID: -1809770224702321403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bumblebee_Idle_8
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 38
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 405330830383a9530800000000000000
+      internalID: 3862461410172941572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bumblebee_Idle_9
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 38
+        width: 31
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2676e12730ab4bec0800000000000000
+      internalID: -3552009682126215326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bumblebee_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 38
+        width: 33
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3830f2d64f677ac90800000000000000
+      internalID: -7158622290506218621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bumblebee_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 38
+        width: 33
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9904a04e487313f00800000000000000
+      internalID: 1094717228328829081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bumblebee_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 38
+        width: 35
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6bd20c70afeba590800000000000000
+      internalID: -7661766868486399121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bumblebee_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 38
+        width: 35
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91a42bb42de5dedc0800000000000000
+      internalID: -3608123469147780583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bumblebee_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 38
+        width: 31
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe266d89917517360800000000000000
+      internalID: 7165604249573155567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bumblebee_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 38
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffc264f220f515920800000000000000
+      internalID: 2977265291656310015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Bumblebee_Idle_0: -8466050440115633412
+      Bumblebee_Idle_1: -6175641344606017191
+      Bumblebee_Idle_10: -7158622290506218621
+      Bumblebee_Idle_11: 1094717228328829081
+      Bumblebee_Idle_12: -7661766868486399121
+      Bumblebee_Idle_13: -3608123469147780583
+      Bumblebee_Idle_14: 7165604249573155567
+      Bumblebee_Idle_15: 2977265291656310015
+      Bumblebee_Idle_2: 2819022667720714313
+      Bumblebee_Idle_3: -5292536134057285850
+      Bumblebee_Idle_4: -8673263579009460136
+      Bumblebee_Idle_5: 123927399262237498
+      Bumblebee_Idle_6: -8992608141183152066
+      Bumblebee_Idle_7: -1809770224702321403
+      Bumblebee_Idle_8: 3862461410172941572
+      Bumblebee_Idle_9: -3552009682126215326
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
