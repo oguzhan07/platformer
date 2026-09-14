@@ -10239,6 +10239,7 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   guard: 3
+  damageDelay: 1
 --- !u!50 &1292638842
 Rigidbody2D:
   serializedVersion: 5

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +15,7 @@ public class Player : MonoBehaviour
     public float endValue = 0.5f;
     private GoldManager goldManager;
 
-    [SerializeField] private int health;
+    public int health;
     [SerializeField] private int maxHealth;
 
     
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     public float guard;
     private float attack;
     private int[] listHashCodes = new[] {ATTACK_HASH_1, ATTACK_HASH_2};
+    [SerializeField] private float damageDelay;
      
 
     private Rigidbody2D rb = null;
@@ -73,12 +75,19 @@ public class Player : MonoBehaviour
     {
         healthBar.Bar(health/100);
         health -= amount;
+        StartCoroutine(DamageDelay());
         if (health > 0)
         {
             print(health);
             return;
         }
         Destroy(gameObject);
+    }
+
+    IEnumerator DamageDelay()
+    {
+        print("delay");
+        yield return new WaitForSeconds(1f);
     }
     
     

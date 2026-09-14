@@ -59,8 +59,6 @@ public class Enemy : MonoBehaviour
         followDistance = enemyType.enemyFollowDistance;
         attackDistance = enemyType.enemyAttackDistance;
         renderer.sprite = enemyType.enemySprite;
-
-        arrow = GameObject.Instantiate(arrowPrefab, transform.position, Quaternion.identity);
         
     }
 
@@ -81,45 +79,9 @@ public class Enemy : MonoBehaviour
                 break;
         }
 
-        ArrowPath();
     }
 
-    private void ArrowPath()
-    {
-        if (player)
-        {
-            for (float i = 0; i <= 1; i += 0.1f)
-            {
-                /*float d = Mathf.Sqrt(math.square(player.transform.position.x - transform.position.x) + math.square(player.transform.position.y - transform.position.y));
-                xCoor = (1-i) * (transform.position.x) + i * (player.transform.position.x) - 2 * i * (1 - i) * arrowMaxh * (player.transform.position.y - transform.position.y) / d;
-                yCoor = (1-i) * (transform.position.y) + i * (player.transform.position.y) - 2 * i * (1 - i) * arrowMaxh * (player.transform.position.x - transform.position.x) / d;
-                arrow.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, arrowMaxh);*/
-            
-                xCoor = transform.position.x + i * (player.transform.position.x - transform.position.x);
-                yCoor = arrow.transform.position.y - 4 * arrowMaxh * i * (1 - i);
-                arrow.transform.position = new Vector2(xCoor, yCoor);
-                //print("x:" +xCoor);
-                //print("y:" +yCoor);
-            }
-        }
-        // okun güzergahında kaldım. fonksiyon ile güzergahı
-        // çizdireceğim. go to giib şeylere bakıp, gidiş yolunu verme
-        // işine de bakabilirim. aklıma ilk gelen şey fonksiyonun x
-        // değerleri döndürmesi ve okunn bunları her framde
-        // input olarak alması oldu.
-        // düşmanla aramdaki mesafenin yarısı / hipotenüs = cosx
-        // -1 < cosx < 1
-        // arccos(x) = derece
-        // vector2() ne ister ?: koordinatta bir nokta, x ve y değerleri
-        
-        
-        
-        // 1. yay çizilecek
-        // 2. yayın güzergahını her frame'de return edecek
-        // 3. return'ün çıktısını ok'un hareket fonksiyonu alacak
-        // 
-        
-    }
+    
     
     private void Attack()
     {
