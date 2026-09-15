@@ -122,8 +122,8 @@ public class Player : MonoBehaviour
 
     private int AttackType()
     {
-        // PROBLEM: Random sürekli aynı sonucu: 0 döndürüyor. 
-        int currentFightTypes = listHashCodes[UnityEngine.Random.Range(0, 1)];
+        // PROBLEM: Random sürekli aynı sonucu: 0 döndürüyor. //
+        int currentFightTypes = listHashCodes[UnityEngine.Random.Range(0, 2)];
         return currentFightTypes;
     }
 
