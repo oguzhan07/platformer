@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     private float attackDistance;
     private SpriteRenderer renderer;
 
+
     
     private void OnDrawGizmos()
     {

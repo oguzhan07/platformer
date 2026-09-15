@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -73,22 +74,24 @@ public class Player : MonoBehaviour
 
     public void DamageToPlayer(int amount)
     {
+        StartCoroutine(DamageDelay(amount));
+    }
+
+    IEnumerator DamageDelay(int amount)
+    {
+        yield return new WaitForSeconds(1.5f);
         healthBar.Bar(health/100);
+        
         health -= amount;
-        StartCoroutine(DamageDelay());
         if (health > 0)
         {
             print(health);
-            return;
+            yield break;
         }
         Destroy(gameObject);
     }
-
-    IEnumerator DamageDelay()
-    {
-        print("delay");
-        yield return new WaitForSeconds(1f);
-    }
+    
+    
     
     
     private void Attack()
