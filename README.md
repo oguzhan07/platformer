@@ -1,42 +1,115 @@
 # Platformer
 
-A 2D platformer game I am building with Unity 6 and C#. This project is **work in progress**:
-the core player, enemy and pickup systems work, but the game is not finished yet.
+Unity 6 ve C# ile geliştirdiğim 2D platform oyunu.
 
-## What works now
+> **Durum: geliştirme devam ediyor.** Oyuncu, düşman ve toplanabilir sistemleri çalışıyor;
+> oyun henüz bitmedi.
 
-**Player** — moving, jumping with a ground check, guarding, and two different attack animations
-chosen at random. Health is shown on a bar that animates with DOTween. Attacks use an overlap
-check against an enemy layer mask, so only objects on that layer can be hit.
+<!-- Buraya 3-4 ekran görüntüsü ekle. docs/ klasörü açıp PNG'leri koy:
+![Oynanış](docs/gameplay.png)
+![Düşman durumları](docs/enemy.png)
+-->
 
-**Enemies** — enemy stats are not written in the enemy script. Every enemy reads its name, damage,
-health, move speed, jump speed, follow distance and attack distance from an `EnemyType`
-ScriptableObject. This means a new enemy type is a new asset file in the editor, not new code.
-Enemies patrol between two empty points, follow the player inside the follow distance, and shoot
-an arrow prefab when the player is inside the attack distance.
+## Şu an çalışanlar
 
-**Pickups and UI** — collectable gold, a coin counter with TextMeshPro, and music / info buttons
-in the menu.
+### Oyuncu
 
-Follow and attack distances are drawn with `OnDrawGizmos`, so the ranges are visible in the
-scene view while tuning them.
+Yatay hareket, yer kontrollü zıplama, blok (guard) ve rastgele seçilen iki farklı saldırı
+animasyonu. Saldırı, düşman layer mask'ine karşı `Physics2D.OverlapCircle` ile yapılıyor —
+yani sadece o katmandaki nesneler vurulabiliyor, sahnedeki her şey taranmıyor.
 
-## Code layout
+Animator parametreleri string yerine `Animator.StringToHash` ile önceden hash'lenip saklanıyor;
+her karede string karşılaştırması yapılmıyor.
+
+### Düşmanlar — durum makinesi
+
+Düşman davranışı `EnemyState` enum'ı üzerinden üç durumda yönetiliyor. `Update` içinde bir
+`switch` var, iç içe if yığını değil:
+
+| Durum | Ne yapar | Nereye geçer |
+|---|---|---|
+| `Patrol` | İki nokta arasında devriye gezer | Oyuncu takip mesafesine girince → `Follow` |
+| `Follow` | Oyuncuya doğru yürür | Saldırı mesafesine girince → `Attack`<br>Takip mesafesinden çıkınca → `Patrol` |
+| `Attack` | Oyuncuya hasar verir, yönünü oyuncuya çevirir | Oyuncu uzaklaşınca → `Patrol` |
+
+Devriye sınırları sahneye yerleştirilen `Point` etiketli tetikleyicilerle belirleniyor; düşman
+bir sınıra değince yön çarpanı tersine dönüyor. Yani devriye alanı kodda değil, seviye
+tasarımında ayarlanıyor.
+
+### Düşmanlar — veriye dayalı tasarım
+
+Düşman istatistikleri düşman scriptine gömülü değil. Her düşman; adını, hasarını, canını,
+hareket hızını, takip ve saldırı mesafelerini ve sprite'ını bir **`EnemyType` ScriptableObject**
+asset'inden okuyor.
+
+Bunun pratik sonucu: yeni bir düşman türü eklemek kod yazmayı değil, editörde yeni bir asset
+oluşturup değerleri girmeyi gerektiriyor. Şu an iki tür var:
+
+| Tür | Hasar | Can | Hareket hızı |
+|---|---|---|---|
+| Archer | 2 | 5 | 1.0 |
+| Lancer | 1 | 7 | 1.5 |
+
+### Can barı
+
+DOTween ile ölçek ve renk animasyonu — can azaldıkça bar yeşilden kırmızıya kayıyor. Arkada
+gecikmeli hareket eden ikinci bir bar var; oyuncunun tek seferde ne kadar hasar aldığını görmesini
+sağlayan klasik "beyaz bar" efekti.
+
+### Toplanabilirler ve arayüz
+
+Havada süzülen altınlar (DOTween yoyo döngüsü), TextMeshPro ile altın sayacı, menüde müzik ve
+bilgi butonları.
+
+### Ayar kolaylığı
+
+Oyuncunun saldırı yarıçapı ile düşmanın takip ve saldırı mesafeleri `OnDrawGizmos` ile sahne
+görünümünde çiziliyor. Değerler kör ayarlanmıyor, sahnede görülerek ayarlanıyor.
+
+## Kod yapısı
 
 ```
 Assets/Project/Scripts/
-├── Player.cs           movement, jump, guard, attack, health
-├── Enemy/Enemy.cs      patrol, follow, ranged attack
-├── Enemy/EnemyType.cs  ScriptableObject with enemy stats
-├── Gold.cs             collectable pickup
-├── UiManager.cs        coin counter
-└── Buttons/            music and info buttons
+├── Player.cs            hareket, zıplama, blok, saldırı, hasar alma
+├── HealthBar.cs         can barı animasyonu (DOTween + coroutine)
+├── Gold.cs              toplanabilir altın
+├── GoldManager.cs       altın sayacı
+├── Enemy/
+│   ├── Enemy.cs         durum makinesi: devriye, takip, saldırı
+│   └── EnemyType.cs     düşman istatistiklerini tutan ScriptableObject
+└── Buttons/             müzik ve bilgi butonları
 ```
 
-## Built with
+## Kullanılan teknolojiler
 
-Unity 6 (6000.3.15f1) · C# · 2D physics with Rigidbody2D · DOTween · TextMeshPro
+Unity 6 (6000.3.15f1) · C# · Rigidbody2D ve 2D fizik · URP 2D · DOTween · TextMeshPro
 
-## Not done yet
+## Henüz yapılmadı
 
-Level design, sound, save system, and a real game loop (win / lose states) are still missing.
+- Bölüm tasarımı ve birden fazla seviye
+- Ses ve müzik
+- Kazanma / kaybetme döngüsü, kayıt sistemi
+- Oyuncu haritadan düştüğünde ölüm animasyonu oynuyor ama karakter sahneden kaldırılmıyor
+
+## Görseller
+
+Pixel art hazır paketlerden geliyor, ikisi de ücretsiz ve ticari kullanıma açık:
+
+- **Tiny Swords** — Pixel Frog
+- **Apocalypse Pixel Pack – Black & White Edition**
+
+Oyunun kodu bana ait.
+
+## Projeyi açmak için
+
+1. **Unity 6 (6000.3.15f1)** veya daha yenisini kur.
+2. Unity Hub → **Add** → bu klasörü seç.
+3. Proje açıldıktan sonra `Assets/Scenes` altındaki sahneyi aç ve **Play**'e bas.
+
+## Kontroller
+
+| Tuş | Hareket |
+|---|---|
+| A / D | Sağa - sola hareket |
+| W | Zıplama |
+| Sol fare | Saldırı |
