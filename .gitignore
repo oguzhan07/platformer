@@ -1,4 +1,18 @@
-Plaintext
+# =============================================================
+# Unity .gitignore
+# Proje kökune (Assets, Packages, ProjectSettings ile ayni seviyeye)
+# ".gitignore" adiyla konulacak.
+#
+# Kaynak: github/gitignore -> Unity.gitignore
+#         + Global/JetBrains.gitignore
+#         + Global/Windows.gitignore
+# =============================================================
+
+
+# -------------------------------------------------------------
+# Unity tarafindan uretilen klasorler
+# -------------------------------------------------------------
+.utmp/
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -6,4 +20,140 @@ Plaintext
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+*.log
+
+# Blender yedek dosyalari
+*.blend1
+*.blend1.meta
+
+# Memory capture dosyalari cok buyuk olabilir ve hassas veri icerebilir
 /[Mm]emoryCaptures/
+
+# Recorder ciktilari
+/[Rr]ecordings/
+
+# Asset Store Tools eklentisini de yoksaymak istersen asagidaki satiri ac
+# /[Aa]ssets/AssetStoreTools*
+
+
+# -------------------------------------------------------------
+# IDE / editor ciktilari
+# -------------------------------------------------------------
+
+# Rider tarafindan otomatik uretilen Unity eklentisi
+/[Aa]ssets/Plugins/Editor/JetBrains*
+
+# Rider kisisel ayarlari
+*.DotSettings.user
+
+# Rider / IntelliJ proje klasoru (tamamen kisisel, repoda olmamali)
+.idea/
+
+# Visual Studio cache
+.vs/
+
+# Gradle cache
+.gradle/
+
+# Otomatik uretilen solution ve project dosyalari
+# (Unity bunlari her acilista sifirdan uretir)
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.slnx
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity'nin urettigi meta dosyalari
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+
+# -------------------------------------------------------------
+# Cokme / hata raporlari
+# -------------------------------------------------------------
+sysinfo.txt
+mono_crash.*
+crashlytics-build.properties
+
+
+# -------------------------------------------------------------
+# Build ciktilari
+# -------------------------------------------------------------
+*.apk
+*.aab
+*.unitypackage
+*.unitypackage.meta
+*.app
+
+
+# -------------------------------------------------------------
+# Test / otomatik uretilen sahneler
+# -------------------------------------------------------------
+InitTestScene*.unity*
+/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+
+# -------------------------------------------------------------
+# Addressables
+# -------------------------------------------------------------
+/ServerData
+/[Aa]ssets/StreamingAssets/aa*
+/[Aa]ssets/AddressableAssetsData/link.xml*
+/[Aa]ssets/Addressables_Temp*
+/[Aa]ssets/AddressableAssetsData/*/*.bin*
+
+
+# -------------------------------------------------------------
+# Visual Scripting otomatik ciktilari
+# -------------------------------------------------------------
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
+
+
+# -------------------------------------------------------------
+# UI Toolkit
+# -------------------------------------------------------------
+/UIElementsSchema/
+
+
+# -------------------------------------------------------------
+# Assets icindeki otomatik cache
+# -------------------------------------------------------------
+/[Aa]ssets/[Ss]ceneDependencyCache*
+
+
+# -------------------------------------------------------------
+# Windows sistem dosyalari
+# -------------------------------------------------------------
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.stackdump
+*.lnk
+
+
+# -------------------------------------------------------------
+# Projeye ozel
+# -------------------------------------------------------------
+# Unity cokme sonrasi olusturdugu kurtarma klasoru.
+# Icindeki sahne gercekten projenin parcasiysa BU SATIRI SIL
+# ve dosyayi Assets altinda duzgun bir yere tasi.
+/[Aa]ssets/_[Rr]ecovery/
