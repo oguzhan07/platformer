@@ -99,17 +99,3 @@ Pixel art hazır paketlerden geliyor, ikisi de ücretsiz ve ticari kullanıma a�
 - **Apocalypse Pixel Pack – Black & White Edition**
 
 Oyunun kodu bana ait.
-
-## Projeyi açmak için
-
-1. **Unity 6 (6000.3.15f1)** veya daha yenisini kur.
-2. Unity Hub → **Add** → bu klasörü seç.
-3. Proje açıldıktan sonra `Assets/Scenes` altındaki sahneyi aç ve **Play**'e bas.
-
-## Kontroller
-
-| Tuş | Hareket |
-|---|---|
-| A / D | Sağa - sola hareket |
-| W | Zıplama |
-| Sol fare | Saldırı |
