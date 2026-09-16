@@ -19,16 +19,16 @@ public class HealthBar : MonoBehaviour
         Color endColor = new Color(255 - (255 * percentValue), 255 * percentValue, 0, 255);
 
         // endValue: 0 ile 1 arasında olmalı.
-        transform.DOScaleX(percentValue, 1f);
-        image.DOColor(endColor, 1f);
+        transform.DOScaleX(percentValue, 0.75f);
+        image.DOColor(endColor, 0.75f);
 
         StartCoroutine(WhiteBarDelay(percentValue));
     }
 
     IEnumerator WhiteBarDelay(float percentValue)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         //ui'da layer: hiyerarşide altta olan sahnede üstte oluyormuş :/
-        whiteBar.transform.DOScaleX(percentValue, 1.5f);
+        whiteBar.transform.DOScaleX(percentValue, 1f);
     }
 }

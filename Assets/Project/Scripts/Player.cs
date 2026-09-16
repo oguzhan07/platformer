@@ -76,9 +76,10 @@ public class Player : MonoBehaviour
     {
         healthBar.Bar(health/100);
         health -= amount;
-        if (health > 0)
+        print("if'in DIŞI health: " + health);
+        if (health >= 0)
         {
-            print("playerdaki health: " + health);
+            print("if'in İÇİ health: " + health);
             return;
         }
         Destroy(gameObject);

@@ -29,12 +29,13 @@ public class Enemy : MonoBehaviour
     private float xCoor;
     private float yCoor;
 
-    public float damage = 2;
+    public float damage;
     private float health;
     private float moveSpeed;
     private float followDistance;
     private float attackDistance;
     private SpriteRenderer renderer;
+    public bool isAttackReady = true;
 
 
     
@@ -94,7 +95,10 @@ public class Enemy : MonoBehaviour
         {
             if (playerCollider.TryGetComponent(out Player player))
             {
-                StartCoroutine(AttackDelay(player));
+                if (isAttackReady)
+                {
+                    StartCoroutine(AttackDelay(player));
+                }
             }
         }
 
@@ -119,10 +123,10 @@ public class Enemy : MonoBehaviour
 
     IEnumerator AttackDelay(Player player)
     {
-        // Enemy'nin, player'a vereceği hasardaki delay.
-        print("Enemy'nin, player'a vereceği hasardaki delay: " + damage);
         player.DamageToPlayer(damage);
-        yield return new WaitForSecondsRealtime(1.5f);
+        isAttackReady = false;
+        yield return new WaitForSecondsRealtime(1.2f);
+        isAttackReady = true;
     }
 
     private void Follow()
