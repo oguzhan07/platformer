@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public float endValue = 0.5f;
     private GoldManager goldManager;
 
-    public int health;
+    public float health;
     [SerializeField] private int maxHealth;
 
     
@@ -27,7 +27,6 @@ public class Player : MonoBehaviour
     public float guard;
     private float attack;
     private int[] listHashCodes = new[] {ATTACK_HASH_1, ATTACK_HASH_2};
-    [SerializeField] private float damageDelay;
      
 
     private Rigidbody2D rb = null;
@@ -59,6 +58,7 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
     }
+    
 
     private void FixedUpdate()
     {
@@ -72,34 +72,25 @@ public class Player : MonoBehaviour
         AttackAnimation();
     }
 
-    public void DamageToPlayer(int amount)
+    public void DamageToPlayer(float amount)
     {
-        StartCoroutine(DamageDelay(amount));
-    }
-
-    IEnumerator DamageDelay(int amount)
-    {
-        yield return new WaitForSeconds(1.5f);
         healthBar.Bar(health/100);
-        
         health -= amount;
         if (health > 0)
         {
-            print(health);
-            yield break;
+            print("playerdaki health: " + health);
+            return;
         }
         Destroy(gameObject);
     }
     
     
-    
-    
     private void Attack()
     {
+        // SORU: GetKey ve GetKeyDown. Normalde GetKeyDown kullanmak mantıklı, yoksa düşman direkt ölüyor
+        // fakat onu kullanınca da aniamsyonlar sıkıntıya giriyor. Ne yapmak lazım ?
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            // SORU: GetKey ve GetKeyDown. Normalde GetKeyDown kullanmak mantıklı, yoksa düşman direkt ölüyor
-            // fakat onu kullanınca da aniamsyonlar sıkıntıya giriyor. Ne yapmak lazım ?
             Collider2D enemyCollider = Physics2D.OverlapCircle(transform.position, attackDistance, enemyLayerMask);
             if (enemyCollider)
             {
@@ -110,6 +101,7 @@ public class Player : MonoBehaviour
             }
         }
     }
+
 
     private bool AttackAnimation()
     {

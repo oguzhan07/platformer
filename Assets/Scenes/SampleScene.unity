@@ -1593,7 +1593,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 6465655763838045165, guid: b20afbc99a41f764393771f0030e3fd8, type: 3}
   moveDir: 1
   arrowSpeed: 0.5
-  damage: 1
+  damage: 0.5
 --- !u!4 &164687754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 8f5e12dd3a9888e45a300388a4aade34, type: 3}
@@ -10239,7 +10239,6 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   guard: 3
-  damageDelay: 1
 --- !u!50 &1292638842
 Rigidbody2D:
   serializedVersion: 5
