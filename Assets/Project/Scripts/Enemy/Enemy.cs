@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -25,7 +26,6 @@ public class Enemy : MonoBehaviour
     private bool run;
     private bool attack;
     public float arrowSpeed = 0.5f;
-    private float arrowMaxh = 3;
     private float xCoor;
     private float yCoor;
 
@@ -36,7 +36,6 @@ public class Enemy : MonoBehaviour
     private float attackDistance;
     private SpriteRenderer renderer;
     public bool isAttackReady = true;
-
 
     
     private void OnDrawGizmos()
@@ -209,15 +208,26 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         health -= amount;
-        print(health);
+        print("enemy health: " + health);
         if (health > 0)
             return;
         
         Destroy(gameObject);
     }
+
+    /*private void DamagePolish()
+    {
+        StartCoroutine(DamagePolishDelay());
+    }
+
+    IEnumerator DamagePolishDelay()
+    {
+        
+        yield return new WaitForSeconds(0.2f);
+    }*/
 }
 
 // Enum'lar inspector'da bir değişkenin seçilebilir değerlerinin listelendiği yapı. 

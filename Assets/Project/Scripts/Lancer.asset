@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Lancer
   m_EditorClassIdentifier: Assembly-CSharp::EnemyType
   enemyName: Lancer
-  enemyDamage: 2
-  enemyHealth: 7
+  enemyDamage: 20
+  enemyHealth: 70
   enemyMoveSpeed: 1.5
   enemyJumpSpeed: 2
   enemyFollowDistance: 4

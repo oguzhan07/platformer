@@ -27,11 +27,14 @@ public class Player : MonoBehaviour
     public float guard;
     private float attack;
     private int[] listHashCodes = new[] {ATTACK_HASH_1, ATTACK_HASH_2};
+    public bool isAttackReady = true;
+    public float damage = 10;
      
 
     private Rigidbody2D rb = null;
     private Animator animator = null;
     private SpriteRenderer sprite = null;
+    [SerializeField] private CameraShake cameraShake;
 
     private static readonly string AnimationNameSpeed = "Speed";
     private static readonly string AnimationNameGuard = "Guard";
@@ -75,11 +78,10 @@ public class Player : MonoBehaviour
     public void DamageToPlayer(float amount)
     {
         healthBar.Bar(health/100);
+        cameraShake.Shake();
         health -= amount;
-        print("if'in DIŞI health: " + health);
         if (health >= 0)
         {
-            print("if'in İÇİ health: " + health);
             return;
         }
         Destroy(gameObject);
@@ -97,10 +99,21 @@ public class Player : MonoBehaviour
             {
                 if (enemyCollider.TryGetComponent(out Enemy enemy))
                 {
-                    enemy.TakeDamage(1);
+                    if (isAttackReady)
+                    {
+                        StartCoroutine(AttackDelay(enemy));
+                    }
                 }
             }
         }
+    }
+
+    IEnumerator AttackDelay(Enemy enemy)
+    {
+        isAttackReady = false;
+        enemy.TakeDamage(damage);
+        yield return new WaitForSeconds(0.3f);
+        isAttackReady = true;
     }
 
 
@@ -136,7 +149,7 @@ public class Player : MonoBehaviour
             // Problemi bu şekilde çözdüm ama bu durumda da karakter yok olmuyor.
             // Karakteri yok ederek animasyonun çalışmasını nasıl sağlarım ?
             // Animasyonlar aynı anda nasıl çalıştırlır ?
-
+            healthBar.Bar(0);
             splash = true;
             rb.linearVelocity = new Vector2(0, 0);
             //Destroy(gameObject, 1.2f);

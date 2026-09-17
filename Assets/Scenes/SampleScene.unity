@@ -1594,6 +1594,7 @@ MonoBehaviour:
   moveDir: 1
   arrowSpeed: 0.5
   damage: 0.5
+  isAttackReady: 1
 --- !u!4 &164687754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 8f5e12dd3a9888e45a300388a4aade34, type: 3}
@@ -10239,6 +10240,8 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   guard: 3
+  isAttackReady: 1
+  damage: 10
 --- !u!50 &1292638842
 Rigidbody2D:
   serializedVersion: 5
@@ -11699,6 +11702,7 @@ MonoBehaviour:
   moveDir: 1
   arrowSpeed: 1e-26
   damage: 1
+  isAttackReady: 1
 --- !u!1 &1405262262
 GameObject:
   m_ObjectHideFlags: 0
