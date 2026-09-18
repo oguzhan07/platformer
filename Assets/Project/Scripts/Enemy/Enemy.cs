@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     
     private GameObject arrow;
     public GameObject arrowPrefab;
+    public EnemyDamage enemyDamage;
     
     
     public int moveDir = 1;
@@ -124,7 +125,7 @@ public class Enemy : MonoBehaviour
     {
         player.DamageToPlayer(damage);
         isAttackReady = false;
-        yield return new WaitForSecondsRealtime(1.2f);
+        yield return new WaitForSeconds(1.2f);
         isAttackReady = true;
     }
 
@@ -211,6 +212,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
+        enemyDamage.EnemyGetDamage(amount);
         print("enemy health: " + health);
         if (health > 0)
             return;
