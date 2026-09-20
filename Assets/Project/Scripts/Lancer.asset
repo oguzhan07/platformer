@@ -15,8 +15,8 @@ MonoBehaviour:
   enemyName: Lancer
   enemyDamage: 20
   enemyHealth: 70
-  enemyMoveSpeed: 1.5
+  enemyMoveSpeed: 1
   enemyJumpSpeed: 2
   enemyFollowDistance: 4
-  enemyAttackDistance: 2
+  enemyAttackDistance: 1.5
   enemySprite: {fileID: -594197781322936934, guid: 25513d9410e056b44b8772877a8f72e3, type: 3}
