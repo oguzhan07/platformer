@@ -48,11 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Project\Scripts\HealthBar.cs" />
+    <Compile Include="Assets\Project\Scripts\Enemy\EnemyDamageText.cs" />
     <Compile Include="Assets\Project\Scripts\Gold.cs" />
     <Compile Include="Assets\Project\Scripts\Player.cs" />
     <Compile Include="Assets\Project\Scripts\CameraShake.cs" />
     <Compile Include="Assets\Project\Scripts\Enemy\EnemyType.cs" />
-    <Compile Include="Assets\Project\Scripts\Enemy\EnemyDamage.cs" />
     <Compile Include="Assets\Project\Scripts\Buttons\MusicButton.cs" />
     <Compile Include="Assets\Project\Scripts\GoldManager.cs" />
     <Compile Include="Assets\Project\Scripts\Buttons\InfoButton.cs" />

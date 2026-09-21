@@ -1610,7 +1610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
   circleRadius: 1
-  enemyDamageNumber: {fileID: 2039813834779042068, guid: 11aeeb14a5c6c344e996db5cf1710aa2, type: 3}
+  enemyDamageNumber: {fileID: 1975899223731962248, guid: 4a8221928f12834479271fe324cd9f81, type: 3}
   enemy: {fileID: 154709130}
 --- !u!4 &164687754 stripped
 Transform:
@@ -11836,7 +11836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
   circleRadius: 1
-  enemyDamageNumber: {fileID: 2039813834779042068, guid: 11aeeb14a5c6c344e996db5cf1710aa2, type: 3}
+  enemyDamageNumber: {fileID: 1975899223731962248, guid: 4a8221928f12834479271fe324cd9f81, type: 3}
   enemy: {fileID: 1392690227}
 --- !u!1 &1405262262
 GameObject:

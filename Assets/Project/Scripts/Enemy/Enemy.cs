@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     
     private GameObject arrow;
     public GameObject arrowPrefab;
-    public EnemyDamage enemyDamage;
+    public EnemyDamageText enemyDamageText;
     
     
     public int moveDir = 1;
@@ -212,13 +212,23 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
-        enemyDamage.EnemyGetDamage(amount);
+        enemyDamageText.EnemyGetDamage(amount);
         print("enemy health: " + health);
+        StartCoroutine(EnemyColorChange());
         if (health > 0)
             return;
         
         Destroy(gameObject);
     }
+
+    IEnumerator EnemyColorChange()
+    {
+        Color originalColor = renderer.color;
+        renderer.color = new Color(255, 0, 0, 0.8f);
+        yield return new WaitForSeconds(0.05f);
+        renderer.color = originalColor;
+    }
+    
 
     /*private void DamagePolish()
     {
