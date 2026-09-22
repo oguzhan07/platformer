@@ -2,6 +2,21 @@
 
 Unity 6 ve C# ile geliştirdiğim 2D platform oyunu.
 
+
+
+https://github.com/user-attachments/assets/d49c28cb-5044-4638-b9a5-a65dc46c9d6e
+
+
+https://github.com/user-attachments/assets/3ba0d82b-bca5-4a9e-a7fd-11d1e91b258f
+
+
+https://github.com/user-attachments/assets/4ad89ad8-2fcf-4b3b-832f-06e4b17fccf1
+
+
+https://github.com/user-attachments/assets/84f5cc70-0548-4e51-8f67-2621dd5258e9
+
+
+
 > **Durum: geliştirme devam ediyor.** Oyuncu, düşman ve toplanabilir sistemleri çalışıyor;
 > oyun henüz bitmedi.
 
