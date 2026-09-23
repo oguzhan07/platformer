@@ -17,6 +17,6 @@ MonoBehaviour:
   enemyHealth: 50
   enemyMoveSpeed: 1
   enemyJumpSpeed: 2
-  enemyFollowDistance: 6
-  enemyAttackDistance: 5
-  enemySprite: {fileID: 7257567913506708742, guid: 04facb10a28aedd47ba063bc40ccbf6c, type: 3}
+  enemyFollowDistance: 3
+  enemyAttackDistance: 1.1
+  enemySprite: {fileID: 1974895838090585116, guid: 6d88f193995ced04e9dcc4a2db9fa546, type: 3}

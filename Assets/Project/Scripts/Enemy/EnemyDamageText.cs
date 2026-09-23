@@ -30,7 +30,6 @@ public class EnemyDamageText : MonoBehaviour
         textMeshPro = damageNumber.GetComponent<TextMeshPro>();
         textMeshPro.text = amount.ToString();
         damageNumber.transform.position = randomPos;
-        //Color transColor = new Color(255, 0, 0, 0);
         textMeshPro.DOFade(0f, 2f);
         textMeshPro.transform.DOScale(new Vector3(0, 0, 0), 2f);
         textMeshPro.transform.DOMoveY(randomPos.y + 2f, 2f);

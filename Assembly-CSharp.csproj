@@ -911,6 +911,9 @@
     <Reference Include="Unity.2D.Animation.Editor">
       <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Recorder.Editor">
+      <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.Recorder.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
       <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
@@ -953,6 +956,9 @@
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Bindings.OpenImageIO.Editor">
+      <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.Bindings.OpenImageIO.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Editor">
       <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
     </Reference>
@@ -964,6 +970,9 @@
     </Reference>
     <Reference Include="Unity.Cinemachine.Editor">
       <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.Cinemachine.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder.Base">
+      <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.Recorder.Base.dll</HintPath>
     </Reference>
     <Reference Include="Unity.UnifiedRayTracing.Runtime">
       <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.UnifiedRayTracing.Runtime.dll</HintPath>
@@ -979,6 +988,9 @@
     </Reference>
     <Reference Include="Unity.2D.Aseprite.Editor">
       <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder">
+      <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.Recorder.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Psdimporter.Editor">
       <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
