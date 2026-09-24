@@ -89,7 +89,7 @@ public class Enemy : MonoBehaviour
     private void Attack()
     {
         animator.SetBool("Attack", true);
-
+        
         Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, attackDistance, playerLayerMask);
         if (playerCollider)
         {

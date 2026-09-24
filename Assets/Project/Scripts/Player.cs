@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            
+            animator.SetTrigger(AttackType());
             Collider2D enemyCollider = Physics2D.OverlapCircle(transform.position, attackDistance, enemyLayerMask);
             if (enemyCollider)
             {
@@ -142,8 +142,6 @@ public class Player : MonoBehaviour
         animator.SetFloat(SPEED_HASH, Mathf.Abs(horizontal));
         animator.SetFloat(GUARD_HASH, guard);
         animator.SetBool(SPLASH_HASH, splash);
-        animator.SetBool(AttackType(), attackAnimation);
-
     }
 
 
