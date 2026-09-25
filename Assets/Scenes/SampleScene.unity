@@ -1436,17 +1436,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.1492438}
+  m_Offset: {x: -0.015612483, y: 0.10835236}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.40625}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.72668886, y: 0.9749921}
+  m_Size: {x: 0.7579138, y: 0.56387913}
   m_EdgeRadius: 0
 --- !u!50 &154709126
 Rigidbody2D:
@@ -1524,7 +1524,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7257567913506708742, guid: 04facb10a28aedd47ba063bc40ccbf6c, type: 3}
+  m_Sprite: {fileID: 1974895838090585116, guid: 6d88f193995ced04e9dcc4a2db9fa546, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1592,7 +1592,7 @@ MonoBehaviour:
   rightEmpty: {fileID: 217056769}
   player: {fileID: 1292638840}
   arrowPrefab: {fileID: 6465655763838045165, guid: b20afbc99a41f764393771f0030e3fd8, type: 3}
-  enemyDamage: {fileID: 154709131}
+  enemyDamageText: {fileID: 154709131}
   moveDir: 1
   arrowSpeed: 0.5
   damage: 0.5
@@ -2888,7 +2888,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebad8090684a33e47900749b5c4a41d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UiManager
+  gold: {fileID: 1663907662}
+  goldPrefab: {fileID: 7049876293639796739, guid: 7bb5ce13137f17f42a98aa73304a9ed2, type: 3}
+  camera: {fileID: 519420031}
+  goldUiImage: {fileID: 708273203}
   textMeshPro: {fileID: 769580192}
+  canvas: {fileID: 1854612518}
 --- !u!4 &348795139
 Transform:
   m_ObjectHideFlags: 0
@@ -7668,7 +7673,7 @@ Transform:
   m_GameObject: {fileID: 852450551}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5303502, y: -1.34192, z: 0}
+  m_LocalPosition: {x: 3.5199986, y: -1.34192, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7687,6 +7692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gold
   goldManager: {fileID: 348795138}
+  uiGold: {fileID: 708273203}
 --- !u!58 &852450554
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10455,7 +10461,7 @@ Transform:
   m_GameObject: {fileID: 1292638840}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.49, y: -0.72, z: 0}
+  m_LocalPosition: {x: -5.33, y: -0.72, z: 0}
   m_LocalScale: {x: 1.3694521, y: 1.5275708, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11622,7 +11628,7 @@ GameObject:
   - component: {fileID: 1392690227}
   - component: {fileID: 1392690228}
   m_Layer: 3
-  m_Name: Lancer
+  m_Name: Turtle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11637,7 +11643,7 @@ Transform:
   m_GameObject: {fileID: 1392690218}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5729201, y: -1.95, z: 0}
+  m_LocalPosition: {x: 2.04, y: -1.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11818,7 +11824,7 @@ MonoBehaviour:
   rightEmpty: {fileID: 1149290172}
   player: {fileID: 1292638840}
   arrowPrefab: {fileID: 6465655763838045165, guid: b20afbc99a41f764393771f0030e3fd8, type: 3}
-  enemyDamage: {fileID: 1392690228}
+  enemyDamageText: {fileID: 1392690228}
   moveDir: 1
   arrowSpeed: 1e-26
   damage: 1
@@ -13401,7 +13407,7 @@ Transform:
   m_GameObject: {fileID: 1628669501}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.49, y: -0.72, z: -10}
+  m_LocalPosition: {x: -5.33, y: -0.72, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13905,7 +13911,7 @@ Transform:
   m_GameObject: {fileID: 1663907660}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4696499, y: -1.34192, z: 0}
+  m_LocalPosition: {x: 0.52, y: -1.34192, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13924,6 +13930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gold
   goldManager: {fileID: 348795138}
+  uiGold: {fileID: 708273203}
 --- !u!58 &1663907663
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14580,7 +14587,7 @@ Transform:
   m_GameObject: {fileID: 1754901409}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5303501, y: -1.34192, z: 0}
+  m_LocalPosition: {x: 1.5199986, y: -1.34192, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14599,6 +14606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gold
   goldManager: {fileID: 348795138}
+  uiGold: {fileID: 708273203}
 --- !u!58 &1754901412
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14909,7 +14917,7 @@ Canvas:
   m_GameObject: {fileID: 1854612514}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -15034,7 +15042,7 @@ Transform:
   m_GameObject: {fileID: 1920902896}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5303501, y: -1.34192, z: 0}
+  m_LocalPosition: {x: 2.5199986, y: -1.34192, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15053,6 +15061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gold
   goldManager: {fileID: 348795138}
+  uiGold: {fileID: 708273203}
 --- !u!58 &1920902899
 CircleCollider2D:
   m_ObjectHideFlags: 0

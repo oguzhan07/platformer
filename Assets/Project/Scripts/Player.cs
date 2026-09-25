@@ -27,8 +27,11 @@ public class Player : MonoBehaviour
     public float guard;
     private float attack;
     private int[] listHashCodes = new[] {ATTACK_HASH_1, ATTACK_HASH_2};
-    public bool isAttackReady = true;
+    private bool isAttackReady = true;
     public float damage = 10;
+    public bool attackAnimation;
+    private bool isPressedW;
+    private bool isFalled = false;
      
 
     private Rigidbody2D rb = null;
@@ -61,18 +64,28 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
     }
-    
 
-    private void FixedUpdate()
+
+    private void Update()
     {
+        // Fizik hariç diğer her şey Update'de.
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        Fall();
-        Move();
-        Animation();
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            isPressedW = true;
+        }
+        
         Attack();
-        AttackAnimation();
+        Animation();
+        Fall();
+    }
+
+    private void FixedUpdate()
+    {
+        // Fizik işlemleri FixedUpdate'de.
+        Move();
     }
 
     public void DamageToPlayer(float amount)
@@ -90,10 +103,9 @@ public class Player : MonoBehaviour
     
     private void Attack()
     {
-        // SORU: GetKey ve GetKeyDown. Normalde GetKeyDown kullanmak mantıklı, yoksa düşman direkt ölüyor
-        // fakat onu kullanınca da aniamsyonlar sıkıntıya giriyor. Ne yapmak lazım ?
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            animator.SetTrigger(AttackType());
             Collider2D enemyCollider = Physics2D.OverlapCircle(transform.position, attackDistance, enemyLayerMask);
             if (enemyCollider)
             {
@@ -108,6 +120,8 @@ public class Player : MonoBehaviour
         }
     }
 
+    
+
     IEnumerator AttackDelay(Enemy enemy)
     {
         isAttackReady = false;
@@ -115,20 +129,10 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         isAttackReady = true;
     }
-
-
-    private bool AttackAnimation()
-    {
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            return true;
-        }
-        return false;
-    }
+    
 
     private int AttackType()
     {
-        // PROBLEM: Random sürekli aynı sonucu: 0 döndürüyor. //
         int currentFightTypes = listHashCodes[UnityEngine.Random.Range(0, 2)];
         return currentFightTypes;
     }
@@ -137,36 +141,38 @@ public class Player : MonoBehaviour
     {
         animator.SetFloat(SPEED_HASH, Mathf.Abs(horizontal));
         animator.SetFloat(GUARD_HASH, guard);
-        animator.SetBool(AttackType(), AttackAnimation());
         animator.SetBool(SPLASH_HASH, splash);
     }
 
+
     private void Fall()
     {
-        if (gameObject.transform.position.y < -3.5)
+        if (gameObject.transform.position.y < -3.5 && !isFalled)
         {
             // Destroy(gameObject) yaptığım zaman animasyon oynamaya fırsat bulamadan karakter siliniyor.
             // Problemi bu şekilde çözdüm ama bu durumda da karakter yok olmuyor.
             // Karakteri yok ederek animasyonun çalışmasını nasıl sağlarım ?
             // Animasyonlar aynı anda nasıl çalıştırlır ?
+            
+            isFalled = true;
+            Physics2D.gravity = new Vector2(0, -0.5f);
             healthBar.Bar(0);
             splash = true;
             rb.linearVelocity = new Vector2(0, 0);
-            //Destroy(gameObject, 1.2f);
-            //ikinci kisimdaki saniye gectikten sonra yok etme islemini gerceklesecek
+            Destroy(gameObject, 1.2f);
         }
     }
     
-
     private void Move()
     {
         rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocityY);
         sprite.flipX = horizontal < 0;
 
-        if (Input.GetKey(KeyCode.W) && onGround)
+        if (isPressedW && onGround)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocityX, vertical * jumpSpeed);
+            rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpSpeed);
             onGround = false;
+            isPressedW = false;
         }
     }
 

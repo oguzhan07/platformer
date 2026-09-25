@@ -22,11 +22,10 @@ public class GoldManager : MonoBehaviour
         textMeshPro.text = "0";
     }
     
-    public void ManagerGold(GameObject paramGameObject)
+    public void ManagerGold(Vector2 goldPosition)
     {
         IncreaseCoin();
-        MoveCoin();
-        DestroyCoin(paramGameObject);
+        MoveCoin(goldPosition);
     }
     
 
@@ -37,18 +36,11 @@ public class GoldManager : MonoBehaviour
     }
     
 
-    private void MoveCoin()
+    private void MoveCoin(Vector2 goldPosition)
     {
-        Vector2 uiPos = camera.ScreenToWorldPoint(goldUiImage.transform.position);
-        Vector2 goldPos = gold.GoldPos();
-
-        GameObject movingGold = Instantiate(goldPrefab, goldPos, Quaternion.identity, canvas);
-        movingGold.transform.DOMove(uiPos, 2f);//.SetLink(movingGold, LinkBehaviour.KillOnDestroy);
-    }
-
-    private void DestroyCoin(GameObject paramGameObject)
-    {
-        Destroy(paramGameObject);
+        Vector2 uiPos = goldUiImage.transform.position;
+        GameObject movingGold = Instantiate(goldPrefab, camera.WorldToScreenPoint(goldPosition), Quaternion.identity, canvas);
+        movingGold.transform.DOMove(uiPos, 1f).SetEase(Ease.InOutBack);//.SetLink(movingGold, LinkBehaviour.KillOnDestroy);
     }
     
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Unity.Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -23,16 +24,20 @@ public class Gold : MonoBehaviour
         {
             // Burada arttırma işlemini başka bir scriptte yapmak problemimi çözdü fakat başka bir problem doğurdu:
             // Her bir altın'a UiManager'ı elle tek tek tanıtmak. Bunu nasıl koddan yapabilirim?
-            
-            goldManager.ManagerGold(gameObject);
+            goldManager.ManagerGold(transform.position);
+            Destroy(gameObject);
+            transform.DOKill(gameObject);
         }
     }
 
-    public Vector2 GoldPos()
+    /*public Vector2 GoldPos()
     {
-        Vector2 goldPosition = transform.position;
-        return goldPosition;
-    }
+        if (gameObject != null)
+        {
+            Vector2 goldPosition = transform.position; 
+            return goldPosition;
+        }
+    }*/
 
     private void GoldAnimation()
     {
