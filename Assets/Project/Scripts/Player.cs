@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     private float horizontal;
     private float vertical;
     private bool splash = false;
-    public float guard;
+    private bool onGuard;
     private float attack;
     private int[] listHashCodes = new[] {ATTACK_HASH_1, ATTACK_HASH_2};
     private bool isAttackReady = true;
@@ -78,8 +78,9 @@ public class Player : MonoBehaviour
         }
         
         Attack();
-        Animation();
+        Guard();
         Fall();
+        Animation();
     }
 
     private void FixedUpdate()
@@ -120,6 +121,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Guard()
+    {
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            animator.SetFloat(GUARD_HASH, 1f);
+        }
+        else
+        {
+            animator.SetFloat(GUARD_HASH, 0f);
+        }
+    }
+
     
 
     IEnumerator AttackDelay(Enemy enemy)
@@ -140,7 +153,6 @@ public class Player : MonoBehaviour
     private void Animation()
     {
         animator.SetFloat(SPEED_HASH, Mathf.Abs(horizontal));
-        animator.SetFloat(GUARD_HASH, guard);
         animator.SetBool(SPLASH_HASH, splash);
     }
 
