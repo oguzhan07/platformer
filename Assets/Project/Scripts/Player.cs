@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 
@@ -14,15 +13,16 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask enemyLayerMask;
     [SerializeField] private CameraShake cameraShake;
     [SerializeField] private int maxHealth;
-    
+
     private bool onGround;
     private float horizontal;
     private int[] listHashCodes = new[] {ATTACK_HASH_1, ATTACK_HASH_2};
-    private bool isAttackReady = true;
     private bool isPressedW;
     private bool isFalled = false;
     private int currentAnimation;
-     
+    private bool isAttacking;
+    private int attackAnimationHash;
+
 
     private Rigidbody2D rb = null;
     private Animator animator = null;
@@ -65,11 +65,16 @@ public class Player : MonoBehaviour
         {
             isPressedW = true;
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isAttacking)
+        {
+            StartAttack();
+        }
+
         Fall();
-        Attack();
         CheckAnimation();
     }
+
     private void FixedUpdate()
     {
         Move();
@@ -91,21 +96,54 @@ public class Player : MonoBehaviour
             ChangeAnimation(SPLASH_HASH);
         }
 
+        else if (isAttacking)
+        {
+            ChangeAnimation(attackAnimationHash, 0.05f);
+        }
+
         else if (Input.GetKey(KeyCode.Mouse1))
         {
             ChangeAnimation(GUARD_HASH);
         }
-        
+
         else if (rb.linearVelocityX != 0)
         {
             ChangeAnimation(RUN_HASH);
         }
-        
+
         else
         {
             ChangeAnimation(IDLE_HASH);
         }
     }
+
+
+    private void StartAttack()
+    {
+        isAttacking = true;
+        attackAnimationHash = AttackType();
+    }
+
+    public void OnAttackHit()
+    {
+        Collider2D enemyCollider = Physics2D.OverlapCircle(transform.position, attackDistance, enemyLayerMask);
+        if (enemyCollider && enemyCollider.TryGetComponent(out Enemy enemy))
+        {
+            enemy.TakeDamage(damage);
+        }
+    }
+
+    public void OnAttackEnd()
+    {
+        isAttacking = false;
+    }
+
+    private int AttackType()
+    {
+        int currentFightTypes = listHashCodes[Random.Range(0, 2)];
+        return currentFightTypes;
+    }
+
 
     public void DamageToPlayer(float amount)
     {
@@ -118,43 +156,8 @@ public class Player : MonoBehaviour
         }
         Destroy(gameObject);
     }
-    
-    
-    private void Attack()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Collider2D enemyCollider = Physics2D.OverlapCircle(transform.position, attackDistance, enemyLayerMask);
-            if (enemyCollider)
-            {
-                if (enemyCollider.TryGetComponent(out Enemy enemy))
-                {
-                    if (isAttackReady)
-                    {
-                        StartCoroutine(AttackDelay(enemy));
-                    }
-                }
-            }
-        }
-    }
-    
 
-    IEnumerator AttackDelay(Enemy enemy)
-    {
-        isAttackReady = false;
-        enemy.TakeDamage(damage);
-        yield return new WaitForSeconds(0.3f);
-        isAttackReady = true;
-    }
-    
 
-    private int AttackType()
-    {
-        int currentFightTypes = listHashCodes[Random.Range(0, 2)];
-        return currentFightTypes;
-    }
-
-   
     private void Fall()
     {
         if (gameObject.transform.position.y < -3.5 && !isFalled)
@@ -165,14 +168,13 @@ public class Player : MonoBehaviour
             rb.linearVelocity = new Vector2(0, 0);
             Destroy(gameObject, 1.2f);
         }
-        
     }
-    
+
     private void Move()
     {
         rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocityY);
         sprite.flipX = horizontal < 0;
-        
+
         if (isPressedW && onGround)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpSpeed);
