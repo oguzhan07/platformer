@@ -254,7 +254,7 @@ public class Enemy : MonoBehaviour
     IEnumerator EnemyColorChange()
     {
         Color originalColor = renderer.color;
-        renderer.color = new Color(255, 0, 0, 0.8f);
+        renderer.color = new Color(1f, 0, 0, 0.8f);
         yield return new WaitForSeconds(0.05f);
         renderer.color = originalColor;
     }
