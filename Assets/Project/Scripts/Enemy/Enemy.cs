@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour
 
             case EnemyState.Attack:
                 Attack();
-                ChangeAnimation(ATTACK_HASH, 0.05f);
+                //ChangeAnimation(ATTACK_HASH, 0.05f);
                 break;
 
             case EnemyState.Follow:
@@ -114,7 +114,7 @@ public class Enemy : MonoBehaviour
         }
         if (!isAttacking)   
         {
-            animator.CrossFade(ATTACK_HASH, 0.05f);
+            ChangeAnimation(ATTACK_HASH, 0.05f);
             isAttacking = true;
         }
 
@@ -135,7 +135,6 @@ public class Enemy : MonoBehaviour
                 enemyState = EnemyState.Patrol;
             }
         }
-        
     }
 
 
