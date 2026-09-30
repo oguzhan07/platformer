@@ -147,14 +147,16 @@ public class Player : MonoBehaviour
 
     public void DamageToPlayer(float amount)
     {
-        healthBar.Bar(health/100);
         cameraShake.Shake();
         health -= amount;
-        if (health >= 0)
+        if (health > 0)
         {
+            print(health);
+            healthBar.Bar(health/maxHealth);
             return;
         }
         //gameObject.SetActive(false);
+        healthBar.Bar(health/maxHealth);
         Destroy(gameObject);
     }
 

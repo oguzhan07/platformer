@@ -24,6 +24,8 @@ public class HealthBar : MonoBehaviour
         image.DOColor(endColor, 0.75f);
 
         StartCoroutine(WhiteBarDelay(percentValue));
+        print("health bar çalıştı");
+        print(percentValue);
     }
 
     IEnumerator WhiteBarDelay(float percentValue)
