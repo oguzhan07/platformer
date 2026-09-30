@@ -154,6 +154,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
+        //gameObject.SetActive(false);
         Destroy(gameObject);
     }
 

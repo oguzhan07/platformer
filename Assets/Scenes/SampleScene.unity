@@ -1588,6 +1588,7 @@ MonoBehaviour:
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  playerScript: {fileID: 1292638841}
   leftEmpty: {fileID: 5247751}
   rightEmpty: {fileID: 217056769}
   player: {fileID: 1292638840}
@@ -1596,7 +1597,7 @@ MonoBehaviour:
   moveDir: 1
   arrowSpeed: 0.5
   damage: 0.5
-  isAttackReady: 1
+  isAttacking: 0
 --- !u!114 &154709131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10352,20 +10353,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a0718fea4902d47b8ec1d65d875195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  health: 100
+  damage: 10
+  healthBar: {fileID: 866092339}
   moveSpeed: 5
   jumpSpeed: 15
   attackDistance: 1
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  healthBar: {fileID: 866092339}
-  endValue: 0.5
-  health: 100
-  maxHealth: 100
-  guard: 3
-  isAttackReady: 1
-  damage: 10
   cameraShake: {fileID: 830802193}
+  maxHealth: 100
 --- !u!50 &1292638842
 Rigidbody2D:
   serializedVersion: 5
@@ -11820,6 +11818,7 @@ MonoBehaviour:
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  playerScript: {fileID: 1292638841}
   leftEmpty: {fileID: 550445981}
   rightEmpty: {fileID: 1149290172}
   player: {fileID: 1292638840}
@@ -11828,7 +11827,7 @@ MonoBehaviour:
   moveDir: 1
   arrowSpeed: 1e-26
   damage: 1
-  isAttackReady: 1
+  isAttacking: 0
 --- !u!114 &1392690228
 MonoBehaviour:
   m_ObjectHideFlags: 0
