@@ -155,7 +155,6 @@ public class Player : MonoBehaviour
             healthBar.Bar(health/maxHealth);
             return;
         }
-        //gameObject.SetActive(false);
         healthBar.Bar(health/maxHealth);
         Destroy(gameObject);
     }

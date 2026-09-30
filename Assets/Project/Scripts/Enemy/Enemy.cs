@@ -36,18 +36,20 @@ public class Enemy : MonoBehaviour
     private float moveSpeed;
     private float followDistance;
     private float attackDistance;
+    private float splashDistance = -3.5f;
+    private bool isFalled;
     private SpriteRenderer renderer;
     public bool isAttacking;
     private int currentAnimation;
 
 
-    private static readonly string AnimationNameIdle = "Idle";
     private static readonly string AnimationNameRun = "Run";
     private static readonly string AnimationNameAttack = "Attack";
+    private static readonly string AnimationNameSplash = "Splash";
 
-    private static readonly int IDLE_HASH = Animator.StringToHash(AnimationNameIdle);
     private static readonly int RUN_HASH = Animator.StringToHash(AnimationNameRun);
     private static readonly int ATTACK_HASH = Animator.StringToHash(AnimationNameAttack);
+    private static readonly int SPLASH_HASH = Animator.StringToHash(AnimationNameSplash);
 
     
     
@@ -87,15 +89,31 @@ public class Enemy : MonoBehaviour
 
             case EnemyState.Attack:
                 Attack();
-                //ChangeAnimation(ATTACK_HASH, 0.05f);
                 break;
 
             case EnemyState.Follow:
                 Follow();
                 break;
+            
+            case EnemyState.Splash:
+                Splash();
+                break;
         }
     }
-    
+
+    private void Splash()
+    {
+        if (!isFalled)
+        {
+            isFalled = true;
+            ChangeAnimation(SPLASH_HASH, 0.05f);
+            rb.linearVelocity = new Vector2(0, 0);
+            rb.gravityScale = 0f;
+            Destroy(gameObject, 1.2f);
+        }
+        
+    }
+
 
     private void ChangeAnimation(int hash, float duration = 0.2f)
     {
@@ -108,6 +126,11 @@ public class Enemy : MonoBehaviour
     
     private void Attack()
     {
+        if (transform.position.y <= splashDistance)
+        {
+            enemyState = EnemyState.Splash;
+        }
+        
         if (!player)
         {
             enemyState = EnemyState.Patrol;
@@ -130,10 +153,14 @@ public class Enemy : MonoBehaviour
                 renderer.flipX = false;
             }
 
+            
+            
             if (Mathf.Abs(player.transform.position.x - transform.position.x) >= attackDistance)
             {
                 enemyState = EnemyState.Patrol;
             }
+            
+            
         }
     }
 
@@ -154,6 +181,12 @@ public class Enemy : MonoBehaviour
 
     private void Follow()
     {
+        
+        if (transform.position.y <= splashDistance)
+        {
+            enemyState = EnemyState.Splash;
+        }
+        
         if (!player)
         {
             enemyState = EnemyState.Patrol;
@@ -176,7 +209,8 @@ public class Enemy : MonoBehaviour
                 new Vector2((player.transform.position.x - transform.position.x) * moveSpeed, rb.linearVelocityY)
                     .normalized;
 
-
+            
+            
             if (Mathf.Abs(player.transform.position.x - transform.position.x) < attackDistance)
             {
                 enemyState = EnemyState.Attack;
@@ -195,7 +229,12 @@ public class Enemy : MonoBehaviour
         /*animator.SetBool("Run", true);
         animator.SetBool("Attack", false);*/
         ChangeAnimation(RUN_HASH, 0.2f);
-
+        
+        if (transform.position.y <= splashDistance)
+        {
+            enemyState = EnemyState.Splash;
+        }
+        
         if (moveDir < 0)
         {
             print("sola gidiyor");
@@ -278,4 +317,5 @@ public enum EnemyState
     Patrol,
     Follow,
     Attack,
+    Splash,
 }
