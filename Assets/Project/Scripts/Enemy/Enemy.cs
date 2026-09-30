@@ -111,7 +111,6 @@ public class Enemy : MonoBehaviour
             rb.gravityScale = 0f;
             Destroy(gameObject, 1.2f);
         }
-        
     }
 
 

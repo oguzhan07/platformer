@@ -175,7 +175,15 @@ public class Player : MonoBehaviour
     private void Move()
     {
         rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocityY);
-        sprite.flipX = horizontal < 0;
+        if (horizontal > 0)
+        {
+            sprite.flipX = false;
+        }
+
+        if (horizontal < 0)
+        {
+            sprite.flipX = true;
+        }
 
         if (isPressedW && onGround)
         {
