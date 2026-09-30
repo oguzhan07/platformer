@@ -165,7 +165,7 @@ public class Player : MonoBehaviour
         if (gameObject.transform.position.y < -3.5 && !isFalled)
         {
             isFalled = true;
-            Physics2D.gravity = new Vector2(0, -0.5f);
+            rb.gravityScale = 0f;
             healthBar.Bar(0);
             rb.linearVelocity = new Vector2(0, 0);
             Destroy(gameObject, 1.2f);
