@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     private bool isAttacking;
     private int attackAnimationHash;
     private bool isSpawning = true;
+    private bool isGuarding;
 
 
     private Rigidbody2D rb = null;
@@ -77,6 +78,15 @@ public class Player : MonoBehaviour
             StartAttack();
         }
 
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            isGuarding = true;
+        }
+        else
+        {
+            isGuarding = false;
+        }
+
         Fall();
         CheckAnimation();
     }
@@ -113,7 +123,7 @@ public class Player : MonoBehaviour
             ChangeAnimation(attackAnimationHash, 0.05f);
         }
 
-        else if (Input.GetKey(KeyCode.Mouse1))
+        else if (isGuarding)
         {
             ChangeAnimation(GUARD_HASH);
         }
@@ -164,16 +174,20 @@ public class Player : MonoBehaviour
 
     public void DamageToPlayer(float amount)
     {
-        cameraShake.Shake();
-        health -= amount;
-        if (health > 0)
+        if (!isGuarding)
         {
-            print(health);
+            cameraShake.Shake();
+            health -= amount;
+            if (health > 0)
+            {
+                print(health);
+                healthBar.Bar(health/maxHealth);
+                return;
+            }
             healthBar.Bar(health/maxHealth);
-            return;
+            Destroy(gameObject);
         }
-        healthBar.Bar(health/maxHealth);
-        Destroy(gameObject);
+        
     }
 
 
