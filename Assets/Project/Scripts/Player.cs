@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 public class Player : MonoBehaviour
@@ -22,6 +24,7 @@ public class Player : MonoBehaviour
     private int currentAnimation;
     private bool isAttacking;
     private int attackAnimationHash;
+    private bool isSpawning = true;
 
 
     private Rigidbody2D rb = null;
@@ -34,6 +37,7 @@ public class Player : MonoBehaviour
     private static readonly string AnimationNameAttack1 = "Attack1";
     private static readonly string AnimationNameAttack2 = "Attack2";
     private static readonly string AnimationNameIdle = "Idle";
+    private static readonly string AnimationNameSpawn = "Spawn";
 
 
     private static readonly int RUN_HASH = Animator.StringToHash(AnimationNameRun);
@@ -42,6 +46,8 @@ public class Player : MonoBehaviour
     private static readonly int ATTACK_HASH_1 = Animator.StringToHash(AnimationNameAttack1);
     private static readonly int ATTACK_HASH_2 = Animator.StringToHash(AnimationNameAttack2);
     private static readonly int IDLE_HASH = Animator.StringToHash(AnimationNameIdle);
+    private static readonly int SPAWN_HASH = Animator.StringToHash(AnimationNameSpawn);
+
 
     private void OnDrawGizmos()
     {
@@ -74,6 +80,7 @@ public class Player : MonoBehaviour
         Fall();
         CheckAnimation();
     }
+    
 
     private void FixedUpdate()
     {
@@ -91,7 +98,12 @@ public class Player : MonoBehaviour
 
     private void CheckAnimation()
     {
-        if (isFalled)
+        if (isSpawning)
+        {
+            ChangeAnimation(SPAWN_HASH);
+        }
+        
+        else if (isFalled)
         {
             ChangeAnimation(SPLASH_HASH);
         }
@@ -136,6 +148,11 @@ public class Player : MonoBehaviour
     public void OnAttackEnd()
     {
         isAttacking = false;
+    }
+
+    public void SpawnPlayer()
+    {
+        isSpawning = false;
     }
 
     private int AttackType()
