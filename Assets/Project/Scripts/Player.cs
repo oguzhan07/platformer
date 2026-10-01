@@ -1,56 +1,53 @@
 using System;
-using System.Collections;
-using System.Runtime.InteropServices.WindowsRuntime;
-using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
-using Random = System.Random;
+using Random = UnityEngine.Random;
+
 
 public class Player : MonoBehaviour
 {
+    public float health;
+    public float damage = 10;
+    public HealthBar healthBar;
+
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float attackDistance;
     [SerializeField] private LayerMask enemyLayerMask;
-    public HealthBar healthBar;
-    public float endValue = 0.5f;
-    private GoldManager goldManager;
-
-    public float health;
+    [SerializeField] private CameraShake cameraShake;
     [SerializeField] private int maxHealth;
 
-    
     private bool onGround;
     private float horizontal;
-    private float vertical;
-    private bool splash = false;
-    public float guard;
-    private float attack;
     private int[] listHashCodes = new[] {ATTACK_HASH_1, ATTACK_HASH_2};
-    private bool isAttackReady = true;
-    public float damage = 10;
-    public bool attackAnimation;
     private bool isPressedW;
     private bool isFalled = false;
-     
+    private int currentAnimation;
+    private bool isAttacking;
+    private int attackAnimationHash;
+    private bool isSpawning = true;
+
 
     private Rigidbody2D rb = null;
     private Animator animator = null;
     private SpriteRenderer sprite = null;
-    [SerializeField] private CameraShake cameraShake;
 
-    private static readonly string AnimationNameSpeed = "Speed";
+    private static readonly string AnimationNameRun = "Run";
     private static readonly string AnimationNameGuard = "Guard";
     private static readonly string AnimationNameSplash = "Splash";
     private static readonly string AnimationNameAttack1 = "Attack1";
     private static readonly string AnimationNameAttack2 = "Attack2";
+    private static readonly string AnimationNameIdle = "Idle";
+    private static readonly string AnimationNameSpawn = "Spawn";
 
 
-    private static readonly int SPEED_HASH = Animator.StringToHash(AnimationNameSpeed);
+    private static readonly int RUN_HASH = Animator.StringToHash(AnimationNameRun);
     private static readonly int GUARD_HASH = Animator.StringToHash(AnimationNameGuard);
     private static readonly int SPLASH_HASH = Animator.StringToHash(AnimationNameSplash);
     private static readonly int ATTACK_HASH_1 = Animator.StringToHash(AnimationNameAttack1);
     private static readonly int ATTACK_HASH_2 = Animator.StringToHash(AnimationNameAttack2);
+    private static readonly int IDLE_HASH = Animator.StringToHash(AnimationNameIdle);
+    private static readonly int SPAWN_HASH = Animator.StringToHash(AnimationNameSpawn);
+
 
     private void OnDrawGizmos()
     {
@@ -68,80 +65,115 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        // Fizik hariç diğer her şey Update'de.
         horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
 
         if (Input.GetKeyDown(KeyCode.W))
         {
             isPressedW = true;
         }
-        
-        Attack();
-        Animation();
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isAttacking)
+        {
+            StartAttack();
+        }
+
         Fall();
+        CheckAnimation();
     }
+    
 
     private void FixedUpdate()
     {
-        // Fizik işlemleri FixedUpdate'de.
         Move();
     }
 
-    public void DamageToPlayer(float amount)
+    private void ChangeAnimation(int animationHash, float duration = 0.2f)
     {
-        healthBar.Bar(health/100);
-        cameraShake.Shake();
-        health -= amount;
-        if (health >= 0)
+        if (currentAnimation != animationHash)
         {
-            return;
-        }
-        Destroy(gameObject);
-    }
-    
-    
-    private void Attack()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            animator.SetTrigger(AttackType());
-            Collider2D enemyCollider = Physics2D.OverlapCircle(transform.position, attackDistance, enemyLayerMask);
-            if (enemyCollider)
-            {
-                if (enemyCollider.TryGetComponent(out Enemy enemy))
-                {
-                    if (isAttackReady)
-                    {
-                        StartCoroutine(AttackDelay(enemy));
-                    }
-                }
-            }
+            currentAnimation = animationHash;
+            animator.CrossFade(currentAnimation, duration);
         }
     }
 
-    
-
-    IEnumerator AttackDelay(Enemy enemy)
+    private void CheckAnimation()
     {
-        isAttackReady = false;
-        enemy.TakeDamage(damage);
-        yield return new WaitForSeconds(0.3f);
-        isAttackReady = true;
+        if (isSpawning)
+        {
+            ChangeAnimation(SPAWN_HASH);
+        }
+        
+        else if (isFalled)
+        {
+            ChangeAnimation(SPLASH_HASH);
+        }
+
+        else if (isAttacking)
+        {
+            ChangeAnimation(attackAnimationHash, 0.05f);
+        }
+
+        else if (Input.GetKey(KeyCode.Mouse1))
+        {
+            ChangeAnimation(GUARD_HASH);
+        }
+
+        else if (rb.linearVelocityX != 0)
+        {
+            ChangeAnimation(RUN_HASH);
+        }
+
+        else
+        {
+            ChangeAnimation(IDLE_HASH);
+        }
     }
-    
+
+
+    private void StartAttack()
+    {
+        isAttacking = true;
+        attackAnimationHash = AttackType();
+    }
+
+    public void OnAttackHit()
+    {
+        Collider2D enemyCollider = Physics2D.OverlapCircle(transform.position, attackDistance, enemyLayerMask);
+        if (enemyCollider && enemyCollider.TryGetComponent(out Enemy enemy))
+        {
+            enemy.TakeDamage(damage);
+        }
+    }
+
+    public void OnAttackEnd()
+    {
+        isAttacking = false;
+    }
+
+    public void SpawnPlayer()
+    {
+        isSpawning = false;
+    }
 
     private int AttackType()
     {
-        int currentFightTypes = listHashCodes[UnityEngine.Random.Range(0, 2)];
+        int currentFightTypes = listHashCodes[Random.Range(0, 2)];
         return currentFightTypes;
     }
 
-    private void Animation()
+
+    public void DamageToPlayer(float amount)
     {
-        animator.SetFloat(SPEED_HASH, Mathf.Abs(horizontal));
-        animator.SetFloat(GUARD_HASH, guard);
-        animator.SetBool(SPLASH_HASH, splash);
+        cameraShake.Shake();
+        health -= amount;
+        if (health > 0)
+        {
+            print(health);
+            healthBar.Bar(health/maxHealth);
+            return;
+        }
+        healthBar.Bar(health/maxHealth);
+        Destroy(gameObject);
     }
 
 
@@ -149,24 +181,26 @@ public class Player : MonoBehaviour
     {
         if (gameObject.transform.position.y < -3.5 && !isFalled)
         {
-            // Destroy(gameObject) yaptığım zaman animasyon oynamaya fırsat bulamadan karakter siliniyor.
-            // Problemi bu şekilde çözdüm ama bu durumda da karakter yok olmuyor.
-            // Karakteri yok ederek animasyonun çalışmasını nasıl sağlarım ?
-            // Animasyonlar aynı anda nasıl çalıştırlır ?
-            
             isFalled = true;
-            Physics2D.gravity = new Vector2(0, -0.5f);
+            rb.gravityScale = 0f;
             healthBar.Bar(0);
-            splash = true;
             rb.linearVelocity = new Vector2(0, 0);
             Destroy(gameObject, 1.2f);
         }
     }
-    
+
     private void Move()
     {
         rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocityY);
-        sprite.flipX = horizontal < 0;
+        if (horizontal > 0)
+        {
+            sprite.flipX = false;
+        }
+
+        if (horizontal < 0)
+        {
+            sprite.flipX = true;
+        }
 
         if (isPressedW && onGround)
         {
@@ -180,9 +214,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            print("oyuncu yerde");
             onGround = true;
         }
     }
 }
-    

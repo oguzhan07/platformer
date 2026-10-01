@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public EnemyType enemyType;
     public EnemyState enemyState;
     [SerializeField] private LayerMask playerLayerMask;
+    [SerializeField] private Player playerScript;
     private GoldManager goldManager;
 
 
@@ -16,7 +17,7 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     public GameObject leftEmpty;
     public GameObject rightEmpty;
-    public GameObject player;
+    public GameObject player = null;
     
     private GameObject arrow;
     public GameObject arrowPrefab;
@@ -35,9 +36,22 @@ public class Enemy : MonoBehaviour
     private float moveSpeed;
     private float followDistance;
     private float attackDistance;
+    private float splashDistance = -3.5f;
+    private bool isFalled;
     private SpriteRenderer renderer;
-    public bool isAttackReady = true;
+    public bool isAttacking;
+    private int currentAnimation;
 
+
+    private static readonly string AnimationNameRun = "Run";
+    private static readonly string AnimationNameAttack = "Attack";
+    private static readonly string AnimationNameSplash = "Splash";
+
+    private static readonly int RUN_HASH = Animator.StringToHash(AnimationNameRun);
+    private static readonly int ATTACK_HASH = Animator.StringToHash(AnimationNameAttack);
+    private static readonly int SPLASH_HASH = Animator.StringToHash(AnimationNameSplash);
+
+    
     
     private void OnDrawGizmos()
     {
@@ -51,6 +65,7 @@ public class Enemy : MonoBehaviour
         renderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        //playerScript = player.GetComponent<Player>();
     }
 
     private void Start()
@@ -62,7 +77,6 @@ public class Enemy : MonoBehaviour
         followDistance = enemyType.enemyFollowDistance;
         attackDistance = enemyType.enemyAttackDistance;
         renderer.sprite = enemyType.enemySprite;
-        
     }
 
     private void Update()
@@ -80,26 +94,50 @@ public class Enemy : MonoBehaviour
             case EnemyState.Follow:
                 Follow();
                 break;
+            
+            case EnemyState.Splash:
+                Splash();
+                break;
         }
-
     }
 
-    
+    private void Splash()
+    {
+        if (!isFalled)
+        {
+            isFalled = true;
+            ChangeAnimation(SPLASH_HASH, 0.05f);
+            rb.linearVelocity = new Vector2(0, 0);
+            rb.gravityScale = 0f;
+            Destroy(gameObject, 1.2f);
+        }
+    }
+
+
+    private void ChangeAnimation(int hash, float duration = 0.2f)
+    {
+        if (currentAnimation != hash)
+        {
+            currentAnimation = hash;
+            animator.CrossFade(currentAnimation, duration);
+        }    
+    }
     
     private void Attack()
     {
-        animator.SetBool("Attack", true);
-        
-        Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, attackDistance, playerLayerMask);
-        if (playerCollider)
+        if (transform.position.y <= splashDistance)
         {
-            if (playerCollider.TryGetComponent(out Player player))
-            {
-                if (isAttackReady)
-                {
-                    StartCoroutine(AttackDelay(player));
-                }
-            }
+            enemyState = EnemyState.Splash;
+        }
+        
+        if (!player)
+        {
+            enemyState = EnemyState.Patrol;
+        }
+        if (!isAttacking)   
+        {
+            ChangeAnimation(ATTACK_HASH, 0.05f);
+            isAttacking = true;
         }
 
         if (player)
@@ -114,23 +152,45 @@ public class Enemy : MonoBehaviour
                 renderer.flipX = false;
             }
 
+            
+            
             if (Mathf.Abs(player.transform.position.x - transform.position.x) >= attackDistance)
             {
                 enemyState = EnemyState.Patrol;
             }
+            
+            
         }
     }
 
-    IEnumerator AttackDelay(Player player)
+
+    public void OnAttackHit()
     {
-        player.DamageToPlayer(damage);
-        isAttackReady = false;
-        yield return new WaitForSeconds(1.2f);
-        isAttackReady = true;
+        Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, attackDistance, playerLayerMask);
+        if (playerCollider && playerCollider.TryGetComponent(out Player player))
+        {
+            playerScript.DamageToPlayer(damage);
+        }
+    }
+
+    public void OnAttackEnd()
+    {
+        isAttacking = false;
     }
 
     private void Follow()
     {
+        
+        if (transform.position.y <= splashDistance)
+        {
+            enemyState = EnemyState.Splash;
+        }
+        
+        if (!player)
+        {
+            enemyState = EnemyState.Patrol;
+        }
+        
         if (player)
         {
             if (player.transform.position.x - transform.position.x < 0)
@@ -142,12 +202,14 @@ public class Enemy : MonoBehaviour
             {
                 renderer.flipX = false;
             }
-
+            
+            ChangeAnimation(RUN_HASH, 0.2f);
             rb.linearVelocity =
                 new Vector2((player.transform.position.x - transform.position.x) * moveSpeed, rb.linearVelocityY)
                     .normalized;
 
-
+            
+            
             if (Mathf.Abs(player.transform.position.x - transform.position.x) < attackDistance)
             {
                 enemyState = EnemyState.Attack;
@@ -163,9 +225,15 @@ public class Enemy : MonoBehaviour
     private void Patrol()
     {
         rb.linearVelocity = new Vector2(moveDir * moveSpeed, rb.linearVelocityY);
-        animator.SetBool("Run", true);
-        animator.SetBool("Attack", false);
-
+        /*animator.SetBool("Run", true);
+        animator.SetBool("Attack", false);*/
+        ChangeAnimation(RUN_HASH, 0.2f);
+        
+        if (transform.position.y <= splashDistance)
+        {
+            enemyState = EnemyState.Splash;
+        }
+        
         if (moveDir < 0)
         {
             print("sola gidiyor");
@@ -224,7 +292,7 @@ public class Enemy : MonoBehaviour
     IEnumerator EnemyColorChange()
     {
         Color originalColor = renderer.color;
-        renderer.color = new Color(255, 0, 0, 0.8f);
+        renderer.color = new Color(1f, 0, 0, 0.8f);
         yield return new WaitForSeconds(0.05f);
         renderer.color = originalColor;
     }
@@ -248,4 +316,5 @@ public enum EnemyState
     Patrol,
     Follow,
     Attack,
+    Splash,
 }

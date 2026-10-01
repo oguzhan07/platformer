@@ -16,13 +16,15 @@ public class HealthBar : MonoBehaviour
     
     public void Bar(float percentValue)
     {
-        Color endColor = new Color(255 - (255 * percentValue), 255 * percentValue, 0, 255);
-
+        //Color endColor = new Color(255 - (255 * percentValue), 255 * percentValue, 0, 255);
+        Color endColor = new Color(1 - percentValue, percentValue, 0, 255);
+        
         // endValue: 0 ile 1 arasında olmalı.
         transform.DOScaleX(percentValue, 0.75f);
         image.DOColor(endColor, 0.75f);
 
         StartCoroutine(WhiteBarDelay(percentValue));
+        print(percentValue);
     }
 
     IEnumerator WhiteBarDelay(float percentValue)

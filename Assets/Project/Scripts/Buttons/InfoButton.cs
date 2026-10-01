@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class InfoButton : MonoBehaviour
 {
     private Button button;
+    private bool isPressedButton;
 
     private void Awake()
     {
@@ -18,8 +19,17 @@ public class InfoButton : MonoBehaviour
 
     void Settings()
     {
-        // zamanın akış hızı: (1 de normal oluyor) 
-        Time.timeScale = 0;
-        print("İnfo");
+        if (!isPressedButton)
+        {
+            isPressedButton = true;
+            Time.timeScale = 0;
+        }
+        else if (isPressedButton)
+        {
+            isPressedButton = false;
+            Time.timeScale = 1;
+        }
+        
+        
     }
 }
