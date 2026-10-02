@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class ReloadButton : MonoBehaviour
 {
     private Button button;
-    [SerializeField] private ReloadScene reloadScene;
+    [SerializeField] private ScenesManager reloadScene;
 
     private void Awake()
     {

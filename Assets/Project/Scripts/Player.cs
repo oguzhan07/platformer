@@ -1,5 +1,8 @@
 using System;
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 
@@ -15,6 +18,8 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask enemyLayerMask;
     [SerializeField] private CameraShake cameraShake;
     [SerializeField] private int maxHealth;
+    [SerializeField] private ScenesManager scenesManager;
+    [SerializeField] private Image blackScreen;
 
     private bool onGround;
     private float horizontal;
@@ -61,6 +66,11 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        blackScreen.DOFade(0f, 2f);
     }
 
 
@@ -185,6 +195,7 @@ public class Player : MonoBehaviour
                 return;
             }
             healthBar.Bar(health/maxHealth);
+            GameOver();
             Destroy(gameObject);
         }
         
@@ -203,6 +214,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void GameOver()
+    {
+        scenesManager.ChangeScene("Lose");
+    }
+    
     private void Move()
     {
         rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocityY);
