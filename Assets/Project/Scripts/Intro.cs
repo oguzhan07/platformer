@@ -9,7 +9,6 @@ public class Intro : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             SceneManager.LoadScene("Game");
-            
         }    
     }
 }
