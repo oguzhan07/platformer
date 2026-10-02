@@ -117,17 +117,17 @@ public class Player : MonoBehaviour
         {
             ChangeAnimation(SPLASH_HASH);
         }
-
-        else if (isAttacking)
-        {
-            ChangeAnimation(attackAnimationHash, 0.05f);
-        }
-
+        
         else if (isGuarding)
         {
             ChangeAnimation(GUARD_HASH);
         }
-
+        
+        else if (isAttacking)
+        {
+            ChangeAnimation(attackAnimationHash, 0.05f);
+        }
+        
         else if (rb.linearVelocityX != 0)
         {
             ChangeAnimation(RUN_HASH);
