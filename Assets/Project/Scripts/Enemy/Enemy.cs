@@ -125,42 +125,42 @@ public class Enemy : MonoBehaviour
     
     private void Attack()
     {
+        
         if (transform.position.y <= splashDistance)
         {
+            isAttacking = false;
             enemyState = EnemyState.Splash;
+            return;
         }
         
+        if (isAttacking)
+        {
+            FacePlayer();
+            return;
+        }
+
         if (!player)
         {
             enemyState = EnemyState.Patrol;
+            return;
         }
-        if (!isAttacking)   
+
+        FacePlayer();
+
+        if (Mathf.Abs(player.transform.position.x - transform.position.x) >= attackDistance)
         {
-            ChangeAnimation(ATTACK_HASH, 0.05f);
-            isAttacking = true;
+            enemyState = EnemyState.Patrol;
+            return;
         }
 
-        if (player)
-        {
-            if (player.transform.position.x - transform.position.x < 0)
-            {
-                renderer.flipX = true;
-            }
-
-            if (player.transform.position.x - transform.position.x > 0)
-            {
-                renderer.flipX = false;
-            }
-
-            
-            
-            if (Mathf.Abs(player.transform.position.x - transform.position.x) >= attackDistance)
-            {
-                enemyState = EnemyState.Patrol;
-            }
-            
-            
-        }
+        ChangeAnimation(ATTACK_HASH, 0.05f);
+        isAttacking = true;
+    }
+    
+    private void FacePlayer()
+    {
+        if (!player) return;
+        renderer.flipX = player.transform.position.x < transform.position.x;
     }
 
 
