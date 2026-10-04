@@ -47,15 +47,19 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.15f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Project\Scripts\ReloadScene.cs" />
     <Compile Include="Assets\Project\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Project\Scripts\Enemy\EnemyDamageText.cs" />
     <Compile Include="Assets\Project\Scripts\Gold.cs" />
+    <Compile Include="Assets\Project\Scripts\Lose.cs" />
     <Compile Include="Assets\Project\Scripts\Buttons\ReloadButton.cs" />
+    <Compile Include="Assets\Project\Scripts\Intro.cs" />
     <Compile Include="Assets\Project\Scripts\Player.cs" />
     <Compile Include="Assets\Project\Scripts\CameraShake.cs" />
     <Compile Include="Assets\Project\Scripts\Enemy\EnemyType.cs" />
+    <Compile Include="Assets\Project\Scripts\Outro.cs" />
     <Compile Include="Assets\Project\Scripts\Buttons\MusicButton.cs" />
+    <Compile Include="Assets\Project\Scripts\ScenesManager.cs" />
+    <Compile Include="Assets\Project\Scripts\Home.cs" />
     <Compile Include="Assets\Project\Scripts\GoldManager.cs" />
     <Compile Include="Assets\Project\Scripts\Buttons\InfoButton.cs" />
     <Compile Include="Assets\Project\Scripts\Enemy\Enemy.cs" />
@@ -908,7 +912,7 @@
       <HintPath>C:\Users\oguzh\platformer\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Recorder.Editor">
-      <HintPath>C:\Users\oguzh\platformer\Library\ScriptAssemblies\Unity.Recorder.Editor.dll</HintPath>
+      <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.Recorder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
       <HintPath>C:\Users\oguzh\platformer\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
@@ -953,7 +957,7 @@
       <HintPath>C:\Users\oguzh\platformer\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Bindings.OpenImageIO.Editor">
-      <HintPath>C:\Users\oguzh\platformer\Library\ScriptAssemblies\Unity.Bindings.OpenImageIO.Editor.dll</HintPath>
+      <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.Bindings.OpenImageIO.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Editor">
       <HintPath>C:\Users\oguzh\platformer\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
@@ -968,7 +972,7 @@
       <HintPath>C:\Users\oguzh\platformer\Library\ScriptAssemblies\Unity.Cinemachine.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Recorder.Base">
-      <HintPath>C:\Users\oguzh\platformer\Library\ScriptAssemblies\Unity.Recorder.Base.dll</HintPath>
+      <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.Recorder.Base.dll</HintPath>
     </Reference>
     <Reference Include="Unity.UnifiedRayTracing.Runtime">
       <HintPath>C:\Users\oguzh\platformer\Library\ScriptAssemblies\Unity.UnifiedRayTracing.Runtime.dll</HintPath>
@@ -986,7 +990,7 @@
       <HintPath>C:\Users\oguzh\platformer\Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Recorder">
-      <HintPath>C:\Users\oguzh\platformer\Library\ScriptAssemblies\Unity.Recorder.dll</HintPath>
+      <HintPath>C:\Users\oguzh\OneDrive\Desktop\UNITY\Platformer\Platformer\Library\ScriptAssemblies\Unity.Recorder.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Psdimporter.Editor">
       <HintPath>C:\Users\oguzh\platformer\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>

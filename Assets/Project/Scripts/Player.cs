@@ -1,5 +1,8 @@
 using System;
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 
@@ -15,6 +18,8 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask enemyLayerMask;
     [SerializeField] private CameraShake cameraShake;
     [SerializeField] private int maxHealth;
+    [SerializeField] private ScenesManager scenesManager;
+    [SerializeField] private Image blackScreen;
 
     private bool onGround;
     private float horizontal;
@@ -25,6 +30,7 @@ public class Player : MonoBehaviour
     private bool isAttacking;
     private int attackAnimationHash;
     private bool isSpawning = true;
+    private bool isGuarding;
 
 
     private Rigidbody2D rb = null;
@@ -62,6 +68,11 @@ public class Player : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
+    private void Start()
+    {
+        blackScreen.DOFade(0f, 2f);
+    }
+
 
     private void Update()
     {
@@ -75,6 +86,15 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && !isAttacking)
         {
             StartAttack();
+        }
+
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            isGuarding = true;
+        }
+        else
+        {
+            isGuarding = false;
         }
 
         Fall();
@@ -107,17 +127,17 @@ public class Player : MonoBehaviour
         {
             ChangeAnimation(SPLASH_HASH);
         }
-
+        
+        else if (isGuarding)
+        {
+            ChangeAnimation(GUARD_HASH);
+        }
+        
         else if (isAttacking)
         {
             ChangeAnimation(attackAnimationHash, 0.05f);
         }
-
-        else if (Input.GetKey(KeyCode.Mouse1))
-        {
-            ChangeAnimation(GUARD_HASH);
-        }
-
+        
         else if (rb.linearVelocityX != 0)
         {
             ChangeAnimation(RUN_HASH);
@@ -164,16 +184,21 @@ public class Player : MonoBehaviour
 
     public void DamageToPlayer(float amount)
     {
-        cameraShake.Shake();
-        health -= amount;
-        if (health > 0)
+        if (!isGuarding)
         {
-            print(health);
+            cameraShake.Shake();
+            health -= amount;
+            if (health > 0)
+            {
+                print(health);
+                healthBar.Bar(health/maxHealth);
+                return;
+            }
             healthBar.Bar(health/maxHealth);
-            return;
+            GameOver();
+            Destroy(gameObject);
         }
-        healthBar.Bar(health/maxHealth);
-        Destroy(gameObject);
+        
     }
 
 
@@ -189,6 +214,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void GameOver()
+    {
+        scenesManager.ChangeScene("Lose");
+    }
+    
     private void Move()
     {
         rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocityY);

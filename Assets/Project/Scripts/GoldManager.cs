@@ -40,7 +40,7 @@ public class GoldManager : MonoBehaviour
     {
         Vector2 uiPos = goldUiImage.transform.position;
         GameObject movingGold = Instantiate(goldPrefab, camera.WorldToScreenPoint(goldPosition), Quaternion.identity, canvas);
-        movingGold.transform.DOMove(uiPos, 1f).SetEase(Ease.InOutBack);//.SetLink(movingGold, LinkBehaviour.KillOnDestroy);
+        movingGold.transform.DOMove(uiPos, 1f).SetEase(Ease.InOutBack).SetLink(movingGold, LinkBehaviour.KillOnDestroy);
     }
     
 }
