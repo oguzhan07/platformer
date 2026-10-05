@@ -6,13 +6,18 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 
-public class GoldManager : MonoBehaviour
+public class CollectibleManager : MonoBehaviour
 {
     private int coin;
     [SerializeField] private Gold gold;
     [SerializeField] private GameObject goldPrefab;
+    [SerializeField] private GameObject lancerIconPrefab;
+    
     [SerializeField] private Camera camera;
+    
     public Image goldUiImage;
+    [SerializeField] private Image characterUiImage;
+    
     public TextMeshProUGUI textMeshPro;
     [SerializeField] private Transform canvas;
 
@@ -22,7 +27,7 @@ public class GoldManager : MonoBehaviour
         textMeshPro.text = "0";
     }
     
-    public void ManagerGold(Vector2 goldPosition)
+    public void GoldManager(Vector2 goldPosition)
     {
         IncreaseCoin();
         MoveCoin(goldPosition);
@@ -41,6 +46,15 @@ public class GoldManager : MonoBehaviour
         Vector2 uiPos = goldUiImage.transform.position;
         GameObject movingGold = Instantiate(goldPrefab, camera.WorldToScreenPoint(goldPosition), Quaternion.identity, canvas);
         movingGold.transform.DOMove(uiPos, 1f).SetEase(Ease.InOutBack).SetLink(movingGold, LinkBehaviour.KillOnDestroy);
+    }
+
+    public void ChangeCharacter(Vector2 iconPosition)
+    {
+        Vector2 uiPos = characterUiImage.transform.position;
+        GameObject movingIcon = Instantiate(lancerIconPrefab, camera.WorldToScreenPoint(iconPosition), Quaternion.identity, canvas);
+        movingIcon.transform.DOMove(uiPos, 1f).SetEase(Ease.InOutQuad).SetLink(movingIcon, LinkBehaviour.KillOnDestroy);
+        
+        characterUiImage.sprite = lancerIconPrefab.GetComponent<Image>().sprite;
     }
     
 }

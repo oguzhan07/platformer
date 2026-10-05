@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public EnemyState enemyState;
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private Player playerScript;
-    private GoldManager goldManager;
+    private CollectibleManager collectibleManager;
 
 
     private Rigidbody2D rb;
